@@ -2,73 +2,126 @@
 <html lang="az">
 <head>
   <meta charset="utf-8">
-  <title>SPARK Community</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1"> 
-  <meta name="description" content="SPARK Community — gənclər üçün olimpiada, startup, və texnologiya.">
-  <meta property="og:title" content="SPARK Community">
+  <title>IOSTREAM Community</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="description" content="IOSTREAM Community — gənclər üçün proqramlaşdırma, olimpiada, startup və texnologiya.">
+  <meta property="og:title" content="IOSTREAM Community">
   <meta property="og:description" content="Yeniliklər barədə məlumat veriləcək.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://spark-community.github.io/">
-  <meta property="og:image" content="https://spark-community.github.io/logo.jpeg">
+  <meta property="og:url" content="https://iostreamcommunity.github.io/">
+  <meta property="og:image" content="https://iostreamcommunity.github.io/logo-01.jpg">
+
   <style>
     :root{
-      --bg:#0a0a0a; --fg:#ffffff; --muted:#bdbdbd;
-      --card:#111;  --border:#222;  --radius:16px;
+   
+      --accent:#47A248;
+      --accent-2:#9FD6A0;
+      --bg:#0a0a0a; 
+      --fg:#ffffff;
+      --muted:#bdbdbd;
+      --card:#111111;
+      --border:#1b1b1b;
+      --radius:16px;
     }
-    *{box-sizing:border-box; margin:0; padding:0}
+
+    *{box-sizing:border-box;margin:0;padding:0}
     html,body{height:100%}
     body{
-      font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,system-ui,sans-serif;
-      color:var(--fg); background:radial-gradient(1200px 800px at 80% 10%, #151515, #0c0c0c 50%, #0a0a0a 100%), var(--bg);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
+      color:var(--fg);
+      background:
+        radial-gradient(1000px 700px at 85% 5%, #101010 0%, #0d0d0d 60%, var(--bg) 100%),
+        linear-gradient(135deg, rgba(71,162,72,.08), rgba(0,0,0,0));
       display:flex; align-items:center; justify-content:center;
       -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
     }
+
     .wrap{width:min(92%, 880px); text-align:center}
+
     .logo{
-      width:140px; height:140px; border-radius:50%;
-      display:block; margin:0 auto 1.25rem auto; 
+      width:160px; height:160px; border-radius:24px;
+      display:block; margin:0 auto 1.25rem auto;
       background:#000; border:1px solid var(--border); object-fit:cover;
-      box-shadow: 0 20px 60px rgba(0,0,0,.45), 0 0 1px rgba(255,255,255,.06) inset;
+      box-shadow:
+        0 24px 80px rgba(0,0,0,.5),
+        0 0 0 8px rgba(71,162,72,.12);
     }
+
     h1{
-      font-size: clamp(2rem, 4.5vw, 3rem); font-weight:800; letter-spacing:.02em;
+      font-size:clamp(2rem, 4.5vw, 3rem);
+      font-weight:900; letter-spacing:.02em;
+      display:inline-block;
+      background:linear-gradient(90deg, var(--fg) 0%, var(--accent) 100%);
+      -webkit-background-clip:text; background-clip:text; color:transparent;
     }
+
     .sub{
-      margin-top:.5rem; color:var(--muted); font-size:clamp(1rem, 2.5vw, 1.125rem);
+      margin-top:.6rem; color:var(--muted);
+      font-size:clamp(1rem, 2.4vw, 1.125rem);
     }
+
     .card{
       margin:2rem auto 0; padding:1.25rem 1.25rem;
-      background:var(--card); border:1px solid var(--border);
+      background:linear-gradient(180deg, #121212, #0f0f0f);
+      border:1px solid var(--border);
       border-radius:var(--radius);
+      box-shadow: 0 10px 40px rgba(0,0,0,.35);
     }
+
     .cta-row{display:flex; gap:.75rem; justify-content:center; flex-wrap:wrap; margin-top:1rem}
+
     .btn{
-      appearance:none; border:1px solid var(--border); color:var(--fg);
-      background:transparent; padding:.8rem 1.1rem; border-radius:12px;
-      font-weight:600; text-decoration:none; display:inline-flex; align-items:center; gap:.5rem;
-      transition:.2s ease; cursor:pointer;
+      appearance:none;
+      border:1px solid var(--border);
+      color:var(--fg);
+      background:transparent;
+      padding:.85rem 1.15rem; border-radius:12px;
+      font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:.5rem;
+      transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
     }
     .btn:hover{background:#181818; transform:translateY(-1px)}
-    .btn.primary{border-color:#fff; background:#fff; color:#000}
-    .btn.primary:hover{filter:brightness(.95)}
+
+    .btn.primary{
+      border-color:var(--accent);
+      background:var(--accent);
+      color:#000;
+      box-shadow:0 8px 24px rgba(71,162,72,.35);
+    }
+    .btn.primary:hover{filter:brightness(.97)}
+
+    .pill{
+      display:inline-block;
+      margin:.75rem auto 0;
+      padding:.35rem .7rem;
+      border-radius:999px;
+      font-size:.8rem; font-weight:700; letter-spacing:.04em;
+      color:#d2f3d3;
+      background:linear-gradient(90deg, rgba(71,162,72,.2), rgba(71,162,72,.05));
+      border:1px solid rgba(71,162,72,.35);
+    }
+
     footer{margin-top:2rem; color:#7e7e7e; font-size:.9rem}
+    a.inline{color:var(--accent); text-decoration:none}
+    a.inline:hover{text-decoration:underline}
   </style>
 </head>
 <body>
   <main class="wrap">
-    <img src="logo.jpeg" alt="SPARK Community" class="logo">
+    <img src="logo-01.jpg" alt="IOSTREAM Community loqosu" class="logo">
 
-    <h1>SPARK Community</h1>
-    <p class="sub">Gənclər üçün olimpiada, startup, və texnologiya.</p>
+    <span class="pill">IOSTREAM • COMMUNITY</span>
+    <h1>IOSTREAM Community</h1>
+    <p class="sub">Gənclər üçün proqramlaşdırma, olimpiada, startup və texnologiya.</p>
 
     <section class="card">
-      <p>Yeniliklər barədə məlumat veriləcək.</p>
+      <p>Yeniliklər barədə məlumat veriləcək. Elanlar üçün bizi burada izləyin.</p>
       <div class="cta-row">
         <a class="btn primary" href="/itkamp2025/">IT Yay Kampı 2025-ə keç</a>
       </div>
     </section>
 
-    <footer>© 2025 SPARK Community</footer>
+    <footer>2025 IOSTREAM Community • <a class="inline" href="https://iostreamcommunity.github.io/">iostreamcommunity.github.io</a></footer>
   </main>
 </body>
 </html>
