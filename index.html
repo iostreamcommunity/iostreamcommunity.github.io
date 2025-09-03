@@ -14,15 +14,15 @@
 
   <style>
     :root{
-      --accent:#47A248;         
-      --accent-ink:#144717;     
-      --ink:#0e1116;            
-      --muted:#5b6675;           
-      --bg:#ffffff;           
-      --card:#ffffff;
-      --ring:#e9eef3;
+      --accent:#47A248;      
+      --accent-ink:#144717;
+      --ink:#0e1116;         
+      --muted:#5b6675;     
+      --bg:#ffffff;       
+      --ring:#e9eef3;       
       --radius:16px;
     }
+
 
     *{box-sizing:border-box;margin:0;padding:0}
     html,body{height:100%}
@@ -36,13 +36,11 @@
       -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
     }
 
-  
+ 
     .page{
-      min-height:100dvh;
+      min-height:100vh;
       display:flex;
       flex-direction:column;
-      position:relative;
-      isolation:isolate; 
     }
 
     .wrap{
@@ -50,8 +48,6 @@
       margin-inline:auto;
       text-align:center;
       padding:6.5rem 0 2rem;
-      position:relative;
-      z-index:1;
     }
 
 
@@ -94,11 +90,10 @@
     .card{
       margin:1.75rem auto 0;
       padding:1.25rem 1.25rem;
-      background:var(--card);
+      background:#fff;
       border-radius:var(--radius);
       border:1px solid var(--ring);
-      box-shadow:
-        0 10px 30px rgba(17, 24, 39, .05);
+      box-shadow:0 10px 30px rgba(17,24,39,.05);
     }
 
     .cta-row{
@@ -112,44 +107,33 @@
       background:var(--accent);
       padding:.9rem 1.15rem; border-radius:12px;
       font-weight:800; text-decoration:none; display:inline-flex; align-items:center; gap:.5rem;
-      transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;
-      box-shadow:0 10px 28px rgba(71,162,72,.28);
+      transition:filter .18s ease, transform .18s ease;
+      box-shadow:0 10px 28px rgba(71,162,72,.18);
     }
     .btn:hover{transform:translateY(-1px); filter:brightness(.97)}
-    .btn:active{transform:translateY(0)}
+    .btn:active{transform:none}
 
     footer{
-      margin-top:auto; 
+      margin-top:auto;         
       padding:1.5rem 1rem 2rem;
       text-align:center; color:#6a7380; font-size:.92rem;
       border-top:1px solid var(--ring);
       background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(20,20,20,.015) 100%);
-      position:relative; z-index:1;
     }
     a.inline{color:var(--accent); text-decoration:none}
     a.inline:hover{text-decoration:underline}
-
-
-   
-    }
   </style>
 </head>
 <body>
   <div class="page">
-
-    <canvas id="codeField" aria-hidden="true"></canvas>
-
     <main class="wrap">
-
-      <img src="logo-01.jpg" alt="IOSTREAM Community loqosu" class="logo"
-           onerror="this.onerror=null; this.src='logo.jpeg'">
 
       <span class="pill">IOSTREAM • COMMUNITY</span>
       <h1>IOSTREAM Community</h1>
       <p class="sub">Gənclər üçün proqramlaşdırma, olimpiada, startup və texnologiya.</p>
 
       <section class="card">
-        <p>Yeniliklər barədə məlumat veriləcək. Aşağıdakı linklə bu il təşkil olunmuş IT Yay Kampı 2025 tələbə portalına keçid edin.</p>
+        <p>Yeniliklər barədə məlumat veriləcək. Aşağıdakı linkə keçid edərək bu il təşkil olunmuş IT Yay Kampı 2025 haqqında daha ətraflı öyrənin.</p>
         <div class="cta-row">
           <a class="btn" href="/itkamp2025/">IT Yay Kampı 2025-ə keç</a>
         </div>
