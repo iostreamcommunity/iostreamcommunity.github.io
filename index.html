@@ -14,12 +14,12 @@
 
   <style>
     :root{
-      --accent:#47A248;      
+      --accent:#47A248;
       --accent-ink:#144717;
-      --ink:#0e1116;         
-      --muted:#5b6675;     
-      --bg:#ffffff;       
-      --ring:#e9eef3;       
+      --ink:#0e1116;
+      --muted:#5b6675;
+      --bg:#ffffff;
+      --ring:#e9eef3;
       --radius:16px;
     }
 
@@ -32,7 +32,8 @@
         radial-gradient(900px 600px at -10% 90%, #f7fbf8 10%, transparent 60%),
         var(--bg);
       font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
-      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
     }
 
     .page{
@@ -59,13 +60,13 @@
     }
 
     .logo-sm{
-      width:40px;
-      height:40px;
-      border-radius:12px;
+      width:44px;
+      height:44px;
+      border-radius:16px;
       border:1px solid #e6e6e6;
       object-fit:cover;
       background:#000;
-      box-shadow:0 4px 14px rgba(0,0,0,.08);
+      box-shadow:0 4px 16px rgba(0,0,0,.10);
     }
 
     .brand-text{
@@ -119,8 +120,9 @@
       font-weight:600;
       border-radius:999px;
       border:1px solid var(--ring);
-      padding:.3rem .6rem;
-      background:rgba(255,255,255,.7);
+      padding:.3rem .7rem;
+      background:rgba(255,255,255,.9);
+      backdrop-filter:blur(8px);
     }
     .lang-toggle span{
       cursor:pointer;
@@ -134,79 +136,89 @@
 
     /* HERO */
     .wrap{
-      width:min(92%, 940px);
+      width:min(92%, 960px);
       margin-inline:auto;
       text-align:center;
-      padding:4.5rem 0 2rem;
+      padding:6.5rem 0 3.5rem; /* more vertical space = more centered look */
     }
 
     h1{
-      font-size:clamp(2.6rem, 5vw, 3.6rem);
+      margin-top:1rem;
+      margin-bottom:1rem;
+      font-size:clamp(2.8rem, 5.4vw, 3.8rem);
       font-weight:900;
-      letter-spacing:.01em;
+      letter-spacing:.02em;
       line-height:1.05;
       background:linear-gradient(90deg, #222 0%, var(--accent) 100%);
-      -webkit-background-clip:text; background-clip:text; color:transparent;
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
     }
 
     .sub{
-      margin-top:.8rem;
+      margin-top:.4rem;
       color:var(--muted);
-      font-size:clamp(.98rem, 2rem, 1.05rem);
-      max-width:42rem;
+      font-size:clamp(1rem, 2.1vw, 1.1rem);
+      max-width:46rem;
       margin-inline:auto;
     }
 
     .social-row{
-      margin-top:1.2rem;
+      margin-top:1.6rem;
       display:flex;
       justify-content:center;
-      gap:.75rem;
+      gap:.85rem;
     }
 
     .social-icon{
-      width:34px;
-      height:34px;
+      width:44px;
+      height:44px;
       border-radius:999px;
       border:1px solid var(--ring);
       display:flex;
       align-items:center;
       justify-content:center;
       background:#fff;
-      font-size:1.1rem;
-      text-decoration:none;
       color:#111827;
-      box-shadow:0 6px 18px rgba(15,23,42,.08);
-      transition:transform .16s ease, box-shadow .16s ease;
+      text-decoration:none;
+      box-shadow:0 8px 22px rgba(15,23,42,.10);
+      transition:transform .16s ease, box-shadow .16s ease, background .16s ease;
     }
     .social-icon:hover{
       transform:translateY(-1px);
-      box-shadow:0 8px 20px rgba(15,23,42,.14);
+      box-shadow:0 10px 26px rgba(15,23,42,.18);
+      background:#f3f4f6;
+    }
+    .social-icon svg{
+      width:20px;
+      height:20px;
+      display:block;
     }
 
     .card{
-      margin:2.1rem auto 0;
-      padding:1.6rem 1.5rem;
+      margin:2.4rem auto 0;
+      padding:1.8rem 1.7rem;
       background:#fff;
-      border-radius:var(--radius);
+      border-radius:24px;
       border:1px solid var(--ring);
-      box-shadow:0 10px 30px rgba(17,24,39,.05);
-      max-width:32rem;
+      box-shadow:0 18px 45px rgba(15,23,42,.08);
+      max-width:36rem;
       text-align:left;
     }
 
     .card-title{
       font-weight:700;
-      font-size:.95rem;
+      font-size:.98rem;
       color:#111827;
-      margin-bottom:.35rem;
+      margin-bottom:.4rem;
       text-transform:uppercase;
-      letter-spacing:.12em;
+      letter-spacing:.17em;
     }
 
     .card p{
       font-size:.95rem;
       color:var(--muted);
+      line-height:1.5;
     }
 
     .cta-row{
@@ -214,7 +226,7 @@
       gap:.8rem;
       justify-content:flex-start;
       flex-wrap:wrap;
-      margin-top:1.1rem;
+      margin-top:1.2rem;
     }
 
     .btn{
@@ -223,21 +235,21 @@
       border:1px solid rgba(71,162,72,.35);
       color:#0b1c10;
       background:var(--accent);
-      padding:.85rem 1.25rem;
+      padding:.9rem 1.45rem;
       border-radius:12px;
       font-weight:800;
       text-decoration:none;
       display:inline-flex;
       align-items:center;
       gap:.5rem;
-      font-size:.95rem;
+      font-size:.96rem;
       transition:filter .18s ease, transform .18s ease, box-shadow .18s ease;
-      box-shadow:0 10px 28px rgba(71,162,72,.18);
+      box-shadow:0 12px 30px rgba(71,162,72,.22);
     }
     .btn:hover{
       transform:translateY(-1px);
       filter:brightness(.97);
-      box-shadow:0 12px 30px rgba(71,162,72,.22);
+      box-shadow:0 15px 36px rgba(71,162,72,.26);
     }
     .btn:active{transform:none}
 
@@ -257,7 +269,7 @@
 
     .footer-grid{
       display:grid;
-      grid-template-columns: minmax(0, 2.2fr) repeat(3,minmax(0,1.4fr));
+      grid-template-columns:minmax(0, 2.2fr) repeat(3,minmax(0,1.4fr));
       gap:2.6rem;
       align-items:flex-start;
     }
@@ -306,6 +318,10 @@
     .footer-social a:hover{
       background:#111827;
       transform:translateY(-1px);
+    }
+    .footer-social svg{
+      width:17px;
+      height:17px;
     }
 
     .footer-col-title{
@@ -370,7 +386,7 @@
         justify-content:space-between;
       }
       .wrap{
-        padding-top:3rem;
+        padding-top:4.8rem;
       }
       .footer-grid{
         grid-template-columns:1fr 1fr;
@@ -406,7 +422,7 @@
         <img src="logo.jpeg" alt="IOSTREAM Community logo" class="logo-sm">
         <div>
           <div class="brand-text">IOSTREAM Community</div>
-          <div class="brand-sub">Learn • Build • Share</div>
+          <div class="brand-sub">Learn · Build · Share</div>
         </div>
       </div>
 
@@ -431,17 +447,38 @@
       </p>
 
       <div class="social-row">
-        <!-- linkləri öz social kanallarına dəyişərsən -->
-        <a class="social-icon" href="https://instagram.com" target="_blank" aria-label="Instagram">📷</a>
-        <a class="social-icon" href="https://linkedin.com" target="_blank" aria-label="LinkedIn">in</a>
-        <a class="social-icon" href="https://wa.me" target="_blank" aria-label="WhatsApp">💬</a>
+        <!-- Instagram -->
+        <a class="social-icon" href="https://instagram.com" target="_blank" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+               xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </a>
+
+        <!-- LinkedIn -->
+        <a class="social-icon" href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4v12h-4V8zm7.5 0h3.8v1.7h.06c.53-.98 1.82-2 3.75-2 4 0 4.74 2.63 4.74 6v6.3h-4v-5.6c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.95v5.7h-4V8z"/>
+          </svg>
+        </a>
+
+        <!-- WhatsApp -->
+        <a class="social-icon" href="https://wa.me" target="_blank" aria-label="WhatsApp">
+          <svg viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19.11 17.59c-.31-.16-1.84-.91-2.13-1.02-.29-.1-.5-.16-.71.16-.21.31-.82 1.02-1 1.23-.18.2-.36.23-.67.08-.31-.16-1.29-.48-2.46-1.52-.91-.81-1.52-1.81-1.7-2.12-.18-.31-.02-.48.14-.63.14-.14.31-.36.46-.54.16-.18.21-.31.31-.52.1-.2.05-.39-.03-.55-.08-.16-.71-1.69-.98-2.32-.26-.63-.53-.55-.71-.55-.18 0-.39-.03-.6-.03-.2 0-.52.08-.79.39-.26.31-1.03 1.01-1.03 2.46s1.05 2.86 1.2 3.06c.16.2 2.06 3.14 5.01 4.41 2.95 1.28 2.95.86 3.48.81.53-.05 1.84-.75 2.09-1.48.26-.73.26-1.35.18-1.48-.08-.13-.29-.21-.6-.37z"/>
+            <path d="M16.01 2.67c-7.34 0-13.33 5.88-13.33 13.13 0 2.31.61 4.56 1.78 6.56L2 30l7.89-2.49c1.93.79 4 1.2 6.11 1.2 7.34 0 13.33-5.88 13.33-13.13 0-7.25-5.99-13.13-13.33-13.13zm0 23.68c-1.92 0-3.8-.46-5.48-1.33l-.39-.2-4.68 1.47 1.53-4.5-.26-.39c-1.08-1.67-1.64-3.61-1.64-5.6 0-5.72 4.78-10.38 10.65-10.38s10.65 4.66 10.65 10.38-4.78 10.38-10.65 10.38z"/>
+          </svg>
+        </a>
       </div>
 
       <section class="card" id="events">
-        <div class="card-title">IT Summer Camp 2025</div>
+        <div class="card-title">IT SUMMER CAMP 2025</div>
         <p>
-          Get a glimpse of our flagship event where high school and university students dive into coding, problem solving,
-          olympiads and startup projects with mentors.
+          Get a glimpse of our flagship event where high school and university students dive into coding,
+          problem solving, olympiads and startup projects with mentors.
         </p>
         <div class="cta-row">
           <a class="btn" href="https://iostreamcommunity.github.io/itkamp2025/">
@@ -455,22 +492,39 @@
     <footer id="contact">
       <div class="footer-inner">
         <div class="footer-grid">
-          <div class="footer-brand">
+          <div class="footer-brand" id="about">
             <div class="footer-brand-title">
               <img src="logo.jpeg" alt="IOSTREAM Community logo" class="footer-logo">
-              <div>
-                <strong>IOSTREAM Community</strong>
-              </div>
+              <div><strong>IOSTREAM Community</strong></div>
             </div>
             <p>
-              Empowering young people to explore programming, olympiads, startups and technology together – through camps,
-              meetups and community projects.
+              Empowering young people to explore programming, olympiads, startups and technology together –
+              through camps, meetups and community projects.
             </p>
             <div class="footer-social">
-              <!-- yenə də real linkləri bura yazarsan -->
-              <a href="https://instagram.com" target="_blank" aria-label="Instagram">📷</a>
-              <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">in</a>
-              <a href="https://wa.me" target="_blank" aria-label="WhatsApp">💬</a>
+              <!-- Instagram -->
+              <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                     xmlns="http://www.w3.org/2000/svg">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+              <!-- LinkedIn -->
+              <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4v12h-4V8zm7.5 0h3.8v1.7h.06c.53-.98 1.82-2 3.75-2 4 0 4.74 2.63 4.74 6v6.3h-4v-5.6c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.95v5.7h-4V8z"/>
+                </svg>
+              </a>
+              <!-- WhatsApp -->
+              <a href="https://wa.me" target="_blank" aria-label="WhatsApp">
+                <svg viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19.11 17.59c-.31-.16-1.84-.91-2.13-1.02-.29-.1-.5-.16-.71.16-.21.31-.82 1.02-1 1.23-.18.2-.36.23-.67.08-.31-.16-1.29-.48-2.46-1.52-.91-.81-1.52-1.81-1.7-2.12-.18-.31-.02-.48.14-.63.14-.14.31-.36.46-.54.16-.18.21-.31.31-.52.1-.2.05-.39-.03-.55-.08-.16-.71-1.69-.98-2.32-.26-.63-.53-.55-.71-.55-.18 0-.39-.03-.6-.03-.2 0-.52.08-.79.39-.26.31-1.03 1.01-1.03 2.46s1.05 2.86 1.2 3.06c.16.2 2.06 3.14 5.01 4.41 2.95 1.28 2.95.86 3.48.81.53-.05 1.84-.75 2.09-1.48.26-.73.26-1.35.18-1.48-.08-.13-.29-.21-.6-.37z"/>
+                  <path d="M16.01 2.67c-7.34 0-13.33 5.88-13.33 13.13 0 2.31.61 4.56 1.78 6.56L2 30l7.89-2.49c1.93.79 4 1.2 6.11 1.2 7.34 0 13.33-5.88 13.33-13.13 0-7.25-5.99-13.13-13.33-13.13zm0 23.68c-1.92 0-3.8-.46-5.48-1.33l-.39-.2-4.68 1.47 1.53-4.5-.26-.39c-1.08-1.67-1.64-3.61-1.64-5.6 0-5.72 4.78-10.38 10.65-10.38s10.65 4.66 10.65 10.38-4.78 10.38-10.65 10.38z"/>
+                </svg>
+              </a>
             </div>
           </div>
 
@@ -486,9 +540,9 @@
 
           <div>
             <div class="footer-col-title">Resources</div>
-            <div class="footer-links">
+            <div class="footer-links" id="help-center">
               <a href="#help-center">Help Center</a>
-              <a href="#faq">FAQ</a>
+              <a href="#faq" id="faq">FAQ</a>
             </div>
           </div>
 
