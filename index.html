@@ -41,12 +41,20 @@
       display:flex;
       flex-direction:column;
     }
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter:blur(14px);
+      background:rgba(255,255,255,0.9);
+      border-bottom:1px solid var(--ring);
+    }
 
-    /* NAVBAR */
     .nav-wrap{
-      width:min(92%, 1040px);
+      width:100%;
+      max-width:100%;
       margin-inline:auto;
-      padding:1.2rem 0 0.4rem;
+      padding:1.0rem 2.5rem 0.4rem;
       display:flex;
       align-items:center;
       justify-content:space-between;
@@ -139,7 +147,7 @@
       width:min(92%, 960px);
       margin-inline:auto;
       text-align:center;
-      padding:6.5rem 0 3.5rem; /* more vertical space = more centered look */
+      padding:6.5rem 0 3.5rem;
     }
 
     h1{
@@ -161,38 +169,6 @@
       font-size:clamp(1rem, 2.1vw, 1.1rem);
       max-width:46rem;
       margin-inline:auto;
-    }
-
-    .social-row{
-      margin-top:1.6rem;
-      display:flex;
-      justify-content:center;
-      gap:.85rem;
-    }
-
-    .social-icon{
-      width:44px;
-      height:44px;
-      border-radius:999px;
-      border:1px solid var(--ring);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background:#fff;
-      color:#111827;
-      text-decoration:none;
-      box-shadow:0 8px 22px rgba(15,23,42,.10);
-      transition:transform .16s ease, box-shadow .16s ease, background .16s ease;
-    }
-    .social-icon:hover{
-      transform:translateY(-1px);
-      box-shadow:0 10px 26px rgba(15,23,42,.18);
-      background:#f3f4f6;
-    }
-    .social-icon svg{
-      width:20px;
-      height:20px;
-      display:block;
     }
 
     .card{
@@ -224,7 +200,7 @@
     .cta-row{
       display:flex;
       gap:.8rem;
-      justify-content:flex-start;
+      justify-content:center;  /* düymə ortada */
       flex-wrap:wrap;
       margin-top:1.2rem;
     }
@@ -309,7 +285,6 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      font-size:1rem;
       text-decoration:none;
       color:#e5e7eb;
       background:#0b1020;
@@ -360,6 +335,14 @@
       margin-top:.05rem;
     }
 
+    .footer-contact-item a{
+      color:inherit;
+      text-decoration:none;
+    }
+    .footer-contact-item a:hover{
+      text-decoration:underline;
+    }
+
     .footer-bottom{
       border-top:1px solid #1f2433;
       margin-top:2rem;
@@ -375,11 +358,11 @@
     }
     .footer-bottom a:hover{text-decoration:underline}
 
-    /* RESPONSIVE */
     @media (max-width:768px){
       .nav-wrap{
         flex-direction:column;
         align-items:flex-start;
+        padding-inline:1.25rem;
       }
       .nav-right{
         width:100%;
@@ -416,25 +399,26 @@
 <body>
   <div class="page">
 
-    <!-- NAVBAR -->
-    <header class="nav-wrap">
-      <div class="nav-left">
-        <img src="logo.jpeg" alt="IOSTREAM Community logo" class="logo-sm">
-        <div>
-          <div class="brand-text">IOSTREAM Community</div>
-          <div class="brand-sub">Code · Climb · Conquer</div>
+    <header class="site-header">
+      <div class="nav-wrap">
+        <div class="nav-left">
+          <img src="logo.jpeg" alt="IOSTREAM Community logo" class="logo-sm">
+          <div>
+            <div class="brand-text">IOSTREAM Community</div>
+            <div class="brand-sub">Code · Climb · Conquer</div>
+          </div>
         </div>
-      </div>
 
-      <div class="nav-right">
-        <nav class="nav-links">
-          <a href="#home">Home</a>
-          <a href="#events">Events</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
-        </nav>
-        <div class="lang-toggle">
-          <span class="active">EN</span> · <span>AZ</span>
+        <div class="nav-right">
+          <nav class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#events">Events</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+          </nav>
+          <div class="lang-toggle">
+            <span class="active">EN</span> · <span>AZ</span>
+          </div>
         </div>
       </div>
     </header>
@@ -445,34 +429,6 @@
       <p class="sub">
         Everything about programming, olympiads, startups, and technology for young people to learn, build, and grow.
       </p>
-
-      <div class="social-row">
-        <!-- Instagram -->
-        <a class="social-icon" href="https://instagram.com" target="_blank" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-               stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-               xmlns="http://www.w3.org/2000/svg">
-            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-          </svg>
-        </a>
-
-        <!-- LinkedIn -->
-        <a class="social-icon" href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4v12h-4V8zm7.5 0h3.8v1.7h.06c.53-.98 1.82-2 3.75-2 4 0 4.74 2.63 4.74 6v6.3h-4v-5.6c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.95v5.7h-4V8z"/>
-          </svg>
-        </a>
-
-        <!-- WhatsApp -->
-        <a class="social-icon" href="https://wa.me" target="_blank" aria-label="WhatsApp">
-          <svg viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M19.11 17.59c-.31-.16-1.84-.91-2.13-1.02-.29-.1-.5-.16-.71.16-.21.31-.82 1.02-1 1.23-.18.2-.36.23-.67.08-.31-.16-1.29-.48-2.46-1.52-.91-.81-1.52-1.81-1.7-2.12-.18-.31-.02-.48.14-.63.14-.14.31-.36.46-.54.16-.18.21-.31.31-.52.1-.2.05-.39-.03-.55-.08-.16-.71-1.69-.98-2.32-.26-.63-.53-.55-.71-.55-.18 0-.39-.03-.6-.03-.2 0-.52.08-.79.39-.26.31-1.03 1.01-1.03 2.46s1.05 2.86 1.2 3.06c.16.2 2.06 3.14 5.01 4.41 2.95 1.28 2.95.86 3.48.81.53-.05 1.84-.75 2.09-1.48.26-.73.26-1.35.18-1.48-.08-.13-.29-.21-.6-.37z"/>
-            <path d="M16.01 2.67c-7.34 0-13.33 5.88-13.33 13.13 0 2.31.61 4.56 1.78 6.56L2 30l7.89-2.49c1.93.79 4 1.2 6.11 1.2 7.34 0 13.33-5.88 13.33-13.13 0-7.25-5.99-13.13-13.33-13.13zm0 23.68c-1.92 0-3.8-.46-5.48-1.33l-.39-.2-4.68 1.47 1.53-4.5-.26-.39c-1.08-1.67-1.64-3.61-1.64-5.6 0-5.72 4.78-10.38 10.65-10.38s10.65 4.66 10.65 10.38-4.78 10.38-10.65 10.38z"/>
-          </svg>
-        </a>
-      </div>
 
       <section class="card" id="events">
         <div class="card-title">IT SUMMER CAMP 2025</div>
@@ -498,7 +454,8 @@
               <div><strong>IOSTREAM Community</strong></div>
             </div>
             <p>
-              Everything about programming, olympiads, startups, and technology for young people to learn, build, and grow.
+              Everything about programming, olympiads, startups, and technology for young people
+              to learn, build, and grow together.
             </p>
             <div class="footer-social">
               <!-- Instagram -->
@@ -549,15 +506,11 @@
             <div class="footer-col-title">Contact</div>
             <div class="footer-contact-item">
               <span class="icon">✉️</span>
-              <span>info@iostream.az</span>
+              <span><a href="mailto:info@iostream.az">info@iostream.az</a></span>
             </div>
             <div class="footer-contact-item">
               <span class="icon">📞</span>
-              <span>+994 (77) 717 15 05</span>
-            </div>
-            <div class="footer-contact-item">
-              <span class="icon">📍</span>
-              <span><br>Baku, Azerbaijan</span>
+              <span><a href="tel:+994777171505">+994 (77) 717 - 15 - 05</a></span>
             </div>
           </div>
         </div>
