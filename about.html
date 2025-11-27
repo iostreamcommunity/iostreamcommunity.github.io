@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>About — IOSTREAM Community</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="icon" type="image/png" href="logo-01.png">
+
+  <style>
+    :root{
+      --accent:#47A248;
+      --accent-ink:#144717;
+      --ink:#0e1116;
+      --muted:#5b6675;
+      --bg:#ffffff;
+      --ring:#e9eef3;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:Inter, sans-serif;
+      color:var(--ink);
+      background:var(--bg);
+      -webkit-font-smoothing:antialiased;
+    }
+
+    /* HEADER (reuse your existing header styles) */
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter:blur(14px);
+      background:rgba(255,255,255,0.92);
+      border-bottom:1px solid var(--ring);
+    }
+    .nav-wrap{
+      width:100%;
+      padding:.55rem 2rem .45rem;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .nav-left{display:flex; align-items:center; gap:.75rem;}
+    .logo-sm{
+      width:44px; height:44px;
+      border-radius:16px;
+      border:1px solid #e6e6e6;
+      object-fit:cover;
+    }
+    .brand-text{font-weight:800; font-size:1.05rem;}
+    .brand-sub{font-size:.75rem; color:var(--muted);}
+    .nav-right{display:flex; align-items:center; gap:1.5rem;}
+    .nav-links{display:flex; gap:1.1rem;}
+    .nav-links a{
+      text-decoration:none;
+      color:#1f2933;
+      font-weight:500;
+      position:relative;
+    }
+    .nav-links a::after{
+      content:"";
+      position:absolute; left:0; bottom:-.2rem;
+      width:0; height:2px;
+      background:var(--accent);
+      transition:.2s;
+    }
+    .nav-links a:hover::after{width:100%;}
+
+    /* PAGE CONTENT */
+    .wrap{
+      width:min(92%, 960px);
+      margin:auto;
+      padding:4rem 0;
+      text-align:center;
+    }
+
+    h1{
+      font-size:clamp(2.2rem, 5vw, 3rem);
+      font-weight:900;
+      background:linear-gradient(90deg,#111,var(--accent));
+      -webkit-background-clip:text;
+      color:transparent;
+      margin-bottom:.8rem;
+    }
+
+    .sub{
+      color:var(--muted);
+      font-size:1.1rem;
+      max-width:40rem;
+      margin:auto;
+      margin-bottom:3rem;
+    }
+
+    .team-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:2rem;
+      margin-top:2rem;
+    }
+
+    .team-card{
+      padding:1.8rem;
+      border-radius:20px;
+      border:1px solid var(--ring);
+      background:#fff;
+      box-shadow:0 12px 30px rgba(0,0,0,.06);
+      text-align:center;
+    }
+
+    .team-photo{
+      width:110px;
+      height:110px;
+      border-radius:999px;
+      object-fit:cover;
+      margin-bottom:1rem;
+      box-shadow:0 4px 16px rgba(0,0,0,.12);
+    }
+
+    .team-name{
+      font-weight:700;
+      font-size:1.05rem;
+      margin-bottom:.3rem;
+    }
+
+    .team-role{
+      color:var(--muted);
+      font-size:.92rem;
+      margin-bottom:.8rem;
+    }
+
+    .team-links a{
+      color:var(--accent-ink);
+      font-weight:600;
+      text-decoration:none;
+      font-size:.9rem;
+    }
+    .team-links a:hover{text-decoration:underline;}
+
+    /* FOOTER (same as your site) */
+    footer{
+      margin-top:4rem;
+      padding:2.5rem 1rem 1.6rem;
+      color:#c5c9d3;
+      font-size:.9rem;
+      background:#050816;
+    }
+    .footer-inner{width:min(92%,1040px);margin:auto;}
+    .footer-grid{
+      display:grid;
+      grid-template-columns:minmax(0,2.2fr) repeat(3,minmax(0,1.4fr));
+      gap:2.6rem;
+    }
+    .footer-brand-title{
+      display:flex; gap:.6rem; margin-bottom:.6rem; align-items:center;
+    }
+    .footer-logo{
+      width:38px; height:38px; border-radius:12px; object-fit:cover;
+      border:1px solid #272b3b;
+    }
+    .footer-social{display:flex; gap:.75rem; margin-top:1rem;}
+    .footer-social a{
+      width:30px; height:30px; border-radius:999px;
+      border:1px solid #303549;
+      display:flex; align-items:center; justify-content:center;
+      background:#0b1020;
+    }
+    .footer-social a:hover{background:#111827;}
+    .footer-bottom{
+      border-top:1px solid #1f2433;
+      margin-top:2rem; padding-top:1rem;
+      text-align:center; color:#6b7280;
+      font-size:.82rem;
+    }
+  </style>
+</head>
+
+<body>
+<header class="site-header">
+  <div class="nav-wrap">
+    <div class="nav-left">
+      <img src="logo.jpeg" class="logo-sm">
+      <div>
+        <div class="brand-text">IOSTREAM Community</div>
+        <div class="brand-sub">Code · Climb · Conquer</div>
+      </div>
+    </div>
+
+    <div class="nav-right">
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="events.html">Events</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="lang-toggle"><span class="active">EN</span> · <span>AZ</span></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+   <main class="hero">
+    <div class="container hero-content">
+      <img src="logo.jpeg"
+           alt="SPARK Community Logo"
+           style="max-width:200px; width:50%; border-radius:50%; margin-bottom:1.5rem;">
+      <h4>IOSTREAM Community</h4>
+      <p>is a community founded in 2025.</p>
+      <div style="max-width:560px; margin:2rem auto 0; text-align:center; line-height:1.6;">
+        <p>The mission of “IOSTREAM Community” is to bring together talented young people in Azerbaijan and provide them with Olympiad-level training in programming, artificial intelligence, cybersecurity, data science, and startup-oriented skills, providing students with materials in Azerbaijani at an early age and increasing their access to information. 
+          The creator of the project, Elnur Mirzali, is studying at the Baku City Physics-Mathematics and Informatics Republican Lyceum; he has numerous regional and international achievements in informatics Olympiads and computer science. Another organizer, Aykhan Kazimli, is a graduate of UWC Changshu China College, is currently studying computer science at the University of Oklahoma in the United States of America, and has received republican and international recognition in this field.
+        </p> 
+        <div class="sponsor">
+    <p>IOSTREAM Community and its projects are supported by the "Təhsilə Dəstək Mərkəzi İB".</p>
+    <img src="tdm-logo.png" alt="Təhsilə Dəstək Mərkəzi">
+  </div>
+  </main>
+<br><br>
+  <h2 style="font-size:1.6rem; font-weight:800; margin-top:3rem;">Our Team</h2>
+
+  <div class="team-grid">
+    <div class="team-card">
+      <img src="aykhan.jpeg" class="team-photo">
+      <div class="team-name">Aykhan Kazimli</div>
+      <div class="team-role">Founder • Instructor</div>
+      <div class="team-links">
+        <a href="https://www.linkedin.com/in/aykhankazimli/">LinkedIn Profile</a>
+      </div>
+    </div>
+    
+    <div class="team-card">
+      <img src="elnur.jpeg" class="team-photo">
+      <div class="team-name">Elnur Mirzəli</div>
+      <div class="team-role">Coordinator • Mentor</div>
+      <div class="team-links">
+        <a href="https://www.linkedin.com/in/elnurmirzali/">LinkedIn Profile</a>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <img src="leyla.jpeg" class="team-photo">
+      <div class="team-name">Leyla Rafullayeva</div>
+      <div class="team-role">Event Manager, Robotics Mentor</div>
+      <div class="team-links">
+        <a href="https://www.linkedin.com/in/leylarafullayeva/">LinkedIn Profile</a>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-title">
+          <img src="logo.jpeg" class="footer-logo">
+          <strong>IOSTREAM Community</strong>
+        </div>
+        <p>
+          Everything about programming, olympiads, startups, and technology
+          for young people to learn, build, and grow together.
+        </p>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Quick Links</div>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="events.html">Events</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Resources</div>
+        <div class="footer-links">
+          <a href="helpcenter.html">Help Center</a>
+          <a href="faq.html">FAQ</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <div class="footer-contact-item">✉️ info@iostream.az</div>
+        <div class="footer-contact-item">📞 +994 (77) 717-15-05</div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2025 IOSTREAM Community — All rights reserved.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
