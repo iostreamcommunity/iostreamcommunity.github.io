@@ -5,7 +5,10 @@
   <title>About — IOSTREAM Community</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="icon" type="image/png" href="logo-02.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="logo-02.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="logo-02.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="logo-02.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="logo-02.png">
 
   <style>
     :root{
@@ -17,6 +20,14 @@
       --ring:#e9eef3;
     }
 
+    .footer-social a img{
+      width:17px;
+      height:17px;
+      display:block;
+      object-fit:contain;
+      filter:invert(100%) brightness(200%);
+    }
+
     *{box-sizing:border-box;margin:0;padding:0}
     body{
       font-family:Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
@@ -25,6 +36,7 @@
       -webkit-font-smoothing:antialiased;
     }
 
+    /* HEADER – same as index.html */
     .site-header{
       position:sticky;
       top:0;
@@ -39,6 +51,7 @@
       display:flex;
       align-items:center;
       justify-content:space-between;
+      gap:1.5rem;
     }
     .nav-left{
       display:flex;
@@ -58,26 +71,50 @@
       border-radius:16px;
       border:1px solid #e6e6e6;
       object-fit:cover;
+      background:#000;
+      box-shadow:0 4px 16px rgba(0,0,0,.10);
     }
-    .brand-text{font-weight:800; font-size:1.05rem;}
-    .brand-sub{font-size:.75rem; color:var(--muted);}
-    .nav-right{display:flex; align-items:center; gap:1.5rem;}
-    .nav-links{display:flex; gap:1.1rem;}
+    .brand-text{
+      font-weight:800;
+      font-size:1.05rem;
+      letter-spacing:.03em;
+    }
+    .brand-sub{
+      font-size:.75rem;
+      color:var(--muted);
+    }
+    .nav-right{
+      display:flex;
+      align-items:center;
+      gap:1.5rem;
+      font-size:.93rem;
+    }
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:1.1rem;
+    }
     .nav-links a{
       text-decoration:none;
       color:#1f2933;
       font-weight:500;
       position:relative;
+      padding:.25rem 0;
     }
     .nav-links a::after{
       content:"";
-      position:absolute; left:0; bottom:-.2rem;
-      width:0; height:2px;
+      position:absolute;
+      left:0;
+      bottom:-.2rem;
+      width:0;
+      height:2px;
       background:var(--accent);
-      transition:.2s;
+      border-radius:999px;
+      transition:width .18s ease;
     }
-    .nav-links a:hover::after{width:100%;}
-
+    .nav-links a:hover::after{
+      width:100%;
+    }
     .lang-toggle{
       font-size:.8rem;
       font-weight:600;
@@ -97,6 +134,7 @@
       font-weight:800;
     }
 
+    /* PAGE CONTENT */
     .wrap{
       width:min(92%, 960px);
       margin:auto;
@@ -104,19 +142,23 @@
       text-align:center;
     }
 
-    .hero-logo{
-      max-width:220px;
+    .about-logo{
+      max-width:200px;
       width:50%;
-      margin:0 auto 1.5rem;
+      border-radius:50%;
+      margin-bottom:1.5rem;
     }
-    .hero-title{
+
+    .about-title{
       font-weight:700;
-      margin-bottom:.3rem;
+      font-size:1.1rem;
+      margin-bottom:.1rem;
     }
-    .hero-sub{
+
+    .about-sub{
+      font-size:1rem;
       color:var(--muted);
-      font-size:.98rem;
-      margin-bottom:2.2rem;
+      margin-bottom:2rem;
     }
 
     .mission-text{
@@ -138,20 +180,20 @@
       margin-bottom:1rem;
     }
     .sponsor-box img{
-      width:90px;
+      width:110px;
       opacity:.9;
     }
 
     h2{
       font-size:1.6rem;
       font-weight:800;
-      margin-top:2rem;
+      margin-top:1.5rem;
       margin-bottom:1.5rem;
     }
 
     .team-grid{
       display:grid;
-      grid-template-columns:repeat(3, minmax(0,1fr));
+      grid-template-columns:repeat(3,minmax(260px,1fr));
       gap:2rem;
       margin-top:1rem;
     }
@@ -198,16 +240,14 @@
     }
     .team-links a:hover{text-decoration:underline;}
 
-    .linkedin-inline{
-      display:inline-flex;
-      align-items:center;
-      gap:.3rem;
-    }
-    .linkedin-inline svg{
+    .team-links svg{
       width:14px;
       height:14px;
+      vertical-align:middle;
+      margin-right:.25rem;
     }
 
+    /* FOOTER – same structure/colors as index.html */
     footer{
       padding:2.5rem 1rem 1.6rem;
       color:#c5c9d3;
@@ -219,40 +259,47 @@
       display:grid;
       grid-template-columns:minmax(0,2.2fr) repeat(3,minmax(0,1.4fr));
       gap:2.6rem;
+      align-items:flex-start;
     }
-
     .footer-brand-title{
-      display:flex; gap:.6rem; margin-bottom:.6rem; align-items:center;
+      display:flex;
+      gap:.6rem;
+      margin-bottom:.6rem;
+      align-items:center;
     }
     .footer-logo{
-      width:38px; height:38px; border-radius:12px; object-fit:cover;
+      width:38px;
+      height:38px;
+      border-radius:12px;
+      object-fit:cover;
       border:1px solid #272b3b;
+      background:#000;
     }
-
+    .footer-brand{
+      color:#e5e7eb;
+      font-size:.92rem;
+    }
     .footer-social{
       display:flex;
       gap:.75rem;
       margin-top:1rem;
     }
     .footer-social a{
-      width:30px; height:30px; border-radius:999px;
+      width:30px;
+      height:30px;
+      border-radius:999px;
       border:1px solid #303549;
       display:flex;
       align-items:center;
       justify-content:center;
       background:#0b1020;
+      text-decoration:none;
       color:#e5e7eb;
     }
     .footer-social a:hover{background:#111827;}
     .footer-social svg{
-      width:17px; height:17px;
-    }
-    .footer-social img{
       width:17px;
       height:17px;
-      display:block;
-      object-fit:contain;
-      filter:invert(100%) brightness(200%);
     }
 
     .footer-col-title{
@@ -274,45 +321,46 @@
     .footer-links a:hover{color:#e5e7eb;}
 
     .footer-contact-item{
+      display:flex;
+      align-items:flex-start;
+      gap:.55rem;
       margin-bottom:.45rem;
       color:#9ca3af;
       font-size:.9rem;
+    }
+    .footer-contact-item span.icon{
+      font-size:1rem;
+      margin-top:.05rem;
     }
     .footer-contact-item a{
       color:inherit;
       text-decoration:none;
     }
-    .footer-contact-item a:hover{
-      text-decoration:underline;
-    }
+    .footer-contact-item a:hover{text-decoration:underline;}
 
     .footer-bottom{
       border-top:1px solid #1f2433;
       margin-top:2rem;
       padding-top:1rem;
       text-align:center;
-      font-size:.82rem;
       color:#6b7280;
+      font-size:.82rem;
     }
 
-    @media(max-width:900px){
+    @media (max-width:900px){
       .team-grid{
-        grid-template-columns:repeat(2,minmax(0,1fr));
+        grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
       }
     }
-    @media(max-width:640px){
+    @media (max-width:768px){
       .nav-wrap{
-        padding-inline:1.25rem;
         flex-direction:column;
         align-items:flex-start;
-        gap:.6rem;
+        padding-inline:1.25rem;
       }
       .nav-right{
         width:100%;
         justify-content:space-between;
-      }
-      .team-grid{
-        grid-template-columns:1fr;
       }
     }
   </style>
@@ -324,7 +372,7 @@
   <div class="nav-wrap">
     <div class="nav-left">
       <a href="index.html" class="nav-brand-link">
-        <img src="logo.jpeg" class="logo-sm" alt="IOSTREAM Community logo">
+        <img src="logo.jpeg" alt="IOSTREAM Community logo" class="logo-sm">
         <div>
           <div class="brand-text">IOSTREAM Community</div>
           <div class="brand-sub">Code · Climb · Conquer</div>
@@ -335,36 +383,23 @@
     <div class="nav-right">
       <nav class="nav-links">
         <a href="index.html">Home</a>
-        <a href="events.html">Events</a>
+        <a href="index.html#events">Events</a>
         <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
+        <a href="index.html#contact">Contact</a>
       </nav>
-      <div class="lang-toggle">
-        <span class="active">EN</span> · <span>AZ</span>
-      </div>
+      <div class="lang-toggle"><span class="active">EN</span> · <span>AZ</span></div>
     </div>
   </div>
 </header>
 
 <main class="wrap">
-  <section>
-    <img src="logo.jpeg" alt="IOSTREAM Community" class="hero-logo">
-    <div class="hero-title">IOSTREAM Community</div>
-    <div class="hero-sub">is a community founded in 2025.</div>
+  <img src="logo.jpeg" alt="IOSTREAM Community Logo" class="about-logo">
+  <div class="about-title">IOSTREAM Community</div>
+  <div class="about-sub">is a community founded in 2025.</div>
 
-    <p class="mission-text">
-      The mission of “IOSTREAM Community” is to bring together talented young people in Azerbaijan
-      and provide them with Olympiad-level training in programming, artificial intelligence,
-      cybersecurity, data science, and startup-oriented skills, providing students with materials
-      in Azerbaijani at an early age and increasing their access to information. Founder of the
-      community, Elnur Mirzali, is studying at the Baku City Physics-Mathematics and Informatics
-      Republican Lyceum; he has numerous regional and international achievements in informatics
-      Olympiads and computer science. Aykhan Kazimli, web developer and startup mentor in the
-      projects, is a graduate of UWC Changshu China College, is currently studying computer science
-      at the University of Oklahoma in the United States of America, and has received republican
-      and international recognition in this field.
-    </p>
-  </section>
+  <p class="mission-text">
+    The mission of “IOSTREAM Community” is to bring together talented young people in Azerbaijan and provide them with Olympiad-level training in programming, artificial intelligence, cybersecurity, data science, and startup-oriented skills, providing students with materials in Azerbaijani at an early age and increasing their access to information. Founder of the community, Elnur Mirzali, is studying at the Baku City Physics-Mathematics and Informatics Republican Lyceum; he has numerous regional and international achievements in informatics Olympiads and computer science. Aykhan Kazimli, web developer and startup mentor in the projects, is a graduate of UWC Changshu China College, is currently studying computer science at the University of Oklahoma in the United States of America, and has received republican and international recognition in this field.
+  </p>
 
   <div class="sponsor-box">
     <p>IOSTREAM Community and its projects are supported by "Təhsilə Dəstək Mərkəzi İB".</p>
@@ -374,17 +409,18 @@
   <h2>Our Team</h2>
 
   <div class="team-grid">
+
     <div class="team-card">
       <img src="elnur.jpeg" class="team-photo" alt="Elnur Mirzali">
       <div class="team-name">Elnur Mirzali</div>
       <div class="team-role">Founder • Programming Mentor</div>
       <div class="team-links">
-        <span class="linkedin-inline">
+        <a href="https://www.linkedin.com/in/elnurmirzali/">
           <svg viewBox="0 0 24 24" fill="currentColor">
             <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4v12h-4V8zm7.5 0h3.8v1.7h.06c.53-.98 1.82-2 3.75-2 4 0 4.74 2.63 4.74 6v6.3h-4v-5.6c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.95v5.7h-4V8z"/>
           </svg>
-          <a href="https://www.linkedin.com/in/elnurmirzali/">linkedin.com/in/elnurmirzali</a>
-        </span><br>
+          linkedin.com/in/elnurmirzali
+        </a><br>
         <a href="mailto:elnurmirzali@iostream.az">elnurmirzali@iostream.az</a>
       </div>
     </div>
@@ -394,12 +430,12 @@
       <div class="team-name">Aykhan Kazimli</div>
       <div class="team-role">Web Developer • Startup Mentor</div>
       <div class="team-links">
-        <span class="linkedin-inline">
+        <a href="https://www.linkedin.com/in/aykhankazimli/">
           <svg viewBox="0 0 24 24" fill="currentColor">
             <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4v12h-4V8zm7.5 0h3.8v1.7h.06c.53-.98 1.82-2 3.75-2 4 0 4.74 2.63 4.74 6v6.3h-4v-5.6c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.95v5.7h-4V8z"/>
           </svg>
-          <a href="https://www.linkedin.com/in/aykhankazimli/">linkedin.com/in/aykhankazimli</a>
-        </span><br>
+          linkedin.com/in/aykhankazimli
+        </a><br>
         <a href="mailto:aykhankazimli@iostream.az">aykhankazimli@iostream.az</a>
       </div>
     </div>
@@ -409,24 +445,25 @@
       <div class="team-name">Leyla Rafullayeva</div>
       <div class="team-role">Event Manager • Robotics Mentor</div>
       <div class="team-links">
-        <span class="linkedin-inline">
+        <a href="https://www.linkedin.com/in/leylarafullayeva/">
           <svg viewBox="0 0 24 24" fill="currentColor">
             <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4v12h-4V8zm7.5 0h3.8v1.7h.06c.53-.98 1.82-2 3.75-2 4 0 4.74 2.63 4.74 6v6.3h-4v-5.6c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.95v5.7h-4V8z"/>
           </svg>
-          <a href="https://www.linkedin.com/in/leylarafullayeva/">linkedin.com/in/leylarafullayeva</a>
-        </span><br>
+          linkedin.com/in/leylarafullayeva
+        </a><br>
         <a href="mailto:leylarafullayeva@iostream.az">leylarafullayeva@iostream.az</a>
       </div>
     </div>
+
   </div>
 </main>
 
 <footer>
   <div class="footer-inner">
     <div class="footer-grid">
-      <div>
+      <div class="footer-brand">
         <div class="footer-brand-title">
-          <img src="logo.jpeg" class="footer-logo" alt="IOSTREAM Community logo">
+          <img src="logo.jpeg" alt="IOSTREAM Community logo" class="footer-logo">
           <strong>IOSTREAM Community</strong>
         </div>
         <p>
@@ -447,7 +484,7 @@
               <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4v12h-4V8zm7.5 0h3.8v1.7h.06c.53-.98 1.82-2 3.75-2 4 0 4.74 2.63 4.74 6v6.3h-4v-5.6c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.95v5.7h-4V8z"/>
             </svg>
           </a>
-          <a href="https://wa.me" target="_blank" aria-label="WhatsApp">
+          <a href="https://wa.me" target="_blank">
             <img src="whatsapp.png" alt="WhatsApp">
           </a>
         </div>
@@ -456,28 +493,30 @@
       <div>
         <div class="footer-col-title">Quick Links</div>
         <div class="footer-links">
-          <a href="index.html">Home</a>
-          <a href="events.html">Events</a>
+          <a href="index.html#home">Home</a>
+          <a href="index.html#events">Events</a>
           <a href="about.html">About</a>
-          <a href="contact.html">Contact</a>
+          <a href="index.html#contact">Contact</a>
         </div>
       </div>
 
       <div>
         <div class="footer-col-title">Resources</div>
-        <div class="footer-links">
-          <a href="helpcenter.html">Help Center</a>
-          <a href="faq.html">FAQ</a>
+        <div class="footer-links" id="help-center">
+          <a href="#help-center">Help Center</a>
+          <a href="#faq" id="faq">FAQ</a>
         </div>
       </div>
 
       <div>
         <div class="footer-col-title">Contact</div>
         <div class="footer-contact-item">
-          ✉️ <a href="mailto:info@iostream.az">info@iostream.az</a>
+          <span class="icon">✉️</span>
+          <span><a href="mailto:info@iostream.az">info@iostream.az</a></span>
         </div>
         <div class="footer-contact-item">
-          📞 <a href="tel:+994777171505">+994 (77) 717 - 15 - 05</a>
+          <span class="icon">📞</span>
+          <span><a href="tel:+994777171505">+994 (77) 717 - 15 - 05</a></span>
         </div>
       </div>
     </div>
