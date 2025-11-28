@@ -42,8 +42,7 @@
       text-rendering:optimizeLegibility;
     }
 
-    .page{}
-    
+    /* HEADER */
     .site-header{
       position:sticky;
       top:0;
@@ -354,15 +353,44 @@
       display:none;
     }
 
+    /* DETAIL SECTION (IT CAMP 2025) */
     .event-detail{
-      margin-top:3.2rem;
-      padding:2.2rem 1.8rem 2.4rem;
+      margin-top:3rem;
+      padding:2rem 1.8rem 2.4rem;
       border-radius:28px;
       border:1px solid var(--ring);
       background:#ffffff;
       box-shadow:0 24px 60px rgba(15,23,42,0.08);
       display:none;
     }
+    .event-detail-header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:1rem;
+      margin-bottom:1.4rem;
+    }
+    .event-detail-label{
+      font-size:.9rem;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      color:#6b7280;
+      font-weight:700;
+    }
+    .detail-close{
+      border:none;
+      border-radius:999px;
+      padding:.45rem .9rem;
+      font-size:.8rem;
+      font-weight:700;
+      cursor:pointer;
+      background:#e5e7eb;
+      color:#111827;
+    }
+    .detail-close:hover{
+      background:#d1d5db;
+    }
+
     .event-detail-inner{
       display:grid;
       grid-template-columns:minmax(0, 1.2fr) minmax(0, 1.4fr);
@@ -449,6 +477,7 @@
       }
     }
 
+    /* FOOTER */
     footer{
       margin-top:3rem;
       padding:2.5rem 1rem 1.6rem;
@@ -600,14 +629,17 @@
 
   <main>
     <div class="wrap">
+
+      <!-- HERO -->
       <section class="events-hero">
         <h1>Events</h1>
         <p>
           Discover coding camps, olympiad trainings, and tech projects organized or supported
-          by the IOSTREAM Community.
+          by the IOSTREAM Community for young people in Azerbaijan.
         </p>
       </section>
 
+      <!-- FILTER BAR -->
       <section class="filter-shell">
         <div class="filter-bar">
           <div class="filter-search">
@@ -637,6 +669,15 @@
           </div>
 
           <div class="filter-select">
+            <select id="formatFilter">
+              <option value="all">Team or individual</option>
+              <option value="individual">Individual</option>
+              <option value="team">Team</option>
+              <option value="both">Team &amp; individual</option>
+            </select>
+          </div>
+
+          <div class="filter-select">
             <select id="statusFilter">
               <option value="all">All status</option>
               <option value="current">Current</option>
@@ -646,6 +687,7 @@
         </div>
       </section>
 
+      <!-- CURRENT EVENTS -->
       <section class="events-section">
         <div class="events-section-header">Current events</div>
         <p class="events-section-sub">
@@ -656,6 +698,7 @@
                    data-type="all"
                    data-mode="online"
                    data-status="current"
+                   data-format="all"
                    data-search="coming soon upcoming events iostream community">
             <div class="event-title">New events coming soon</div>
             <p class="event-description">
@@ -674,18 +717,21 @@
         </div>
       </section>
 
-      <section class="events-section">
+      <!-- PAST EVENTS -->
+      <section class="events-section" id="past-events">
         <div class="events-section-header">Past events</div>
         <p class="events-section-sub">
           A look at the projects we’ve already run with motivated students.
         </p>
 
         <div class="events-grid" data-section="past">
+          <!-- IT CAMP 2025 CARD -->
           <article class="event-card"
                    data-type="camp"
                    data-mode="in-person"
                    data-status="past"
-                   data-search="it camp 2025 summer programming olympiad training low income high school students">
+                   data-format="individual"
+                   data-search="it camp 2025 summer programming olympiad training low income high school students individual">
             <div class="event-image-wrap">
               <img src="event-photo.png" alt="Students at IT CAMP 2025">
             </div>
@@ -697,6 +743,7 @@
             <div class="event-meta">
               <span class="pill">Camp</span>
               <span class="pill">In person</span>
+              <span class="pill">Individual</span>
               <span class="pill">Free</span>
             </div>
             <div class="event-footer-row">
@@ -711,7 +758,13 @@
         </div>
       </section>
 
+      <!-- DETAIL SECTION FOR IT CAMP 2025 -->
       <section class="event-detail" id="itcamp2025">
+        <div class="event-detail-header">
+          <div class="event-detail-label">IT CAMP 2025 · Past event</div>
+          <button type="button" class="detail-close" data-detail-close>✕ Close</button>
+        </div>
+
         <div class="event-detail-inner">
           <div class="event-detail-photo">
             <img src="event-photo.png" alt="IT CAMP 2025 group photo">
@@ -774,6 +827,7 @@
     </div>
   </main>
 
+  <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
       <div class="footer-grid">
@@ -845,35 +899,41 @@
 
 </div>
 
+<!-- FILTER + DETAIL LOGIC -->
 <script>
   (function() {
-    const searchInput = document.getElementById('searchInput');
-    const typeFilter  = document.getElementById('typeFilter');
-    const modeFilter  = document.getElementById('modeFilter');
+    const searchInput  = document.getElementById('searchInput');
+    const typeFilter   = document.getElementById('typeFilter');
+    const modeFilter   = document.getElementById('modeFilter');
     const statusFilter = document.getElementById('statusFilter');
+    const formatFilter = document.getElementById('formatFilter');
     const cards = Array.from(document.querySelectorAll('.event-card'));
 
     function applyFilters() {
-      const q = (searchInput.value || '').trim().toLowerCase();
-      const typeVal = typeFilter.value;
-      const modeVal = modeFilter.value;
-      const statusVal = statusFilter.value;
+      const q          = (searchInput.value || '').trim().toLowerCase();
+      const typeVal    = typeFilter.value;
+      const modeVal    = modeFilter.value;
+      const statusVal  = statusFilter.value;
+      const formatVal  = formatFilter.value;
 
       cards.forEach(card => {
-        const type   = card.dataset.type || 'all';
-        const mode   = card.dataset.mode || 'all';
-        const status = card.dataset.status || 'all';
-        const search = (card.dataset.search || '').toLowerCase();
+        const type    = card.dataset.type || 'all';
+        const mode    = card.dataset.mode || 'all';
+        const status  = card.dataset.status || 'all';
+        const format  = card.dataset.format || 'all';
+        const search  = (card.dataset.search || '').toLowerCase();
 
-        const matchType   = (typeVal === 'all'   || type === typeVal);
-        const matchMode   = (modeVal === 'all'   || mode === modeVal);
-        const matchStatus = (statusVal === 'all' || status === statusVal);
-        const matchSearch = !q || search.includes(q);
+        const matchType    = (typeVal   === 'all' || type   === typeVal);
+        const matchMode    = (modeVal   === 'all' || mode   === modeVal);
+        const matchStatus  = (statusVal === 'all' || status === statusVal);
+        const matchFormat  = (formatVal === 'all' || format === formatVal);
+        const matchSearch  = !q || search.includes(q);
 
-        const visible = matchType && matchMode && matchStatus && matchSearch;
+        const visible = matchType && matchMode && matchStatus && matchFormat && matchSearch;
         card.style.display = visible ? '' : 'none';
       });
 
+      // update messages
       document.querySelectorAll('.events-grid').forEach(grid => {
         const visibleCards = Array.from(grid.querySelectorAll('.event-card'))
           .some(card => card.style.display !== 'none');
@@ -887,19 +947,48 @@
     typeFilter.addEventListener('change', applyFilters);
     modeFilter.addEventListener('change', applyFilters);
     statusFilter.addEventListener('change', applyFilters);
+    formatFilter.addEventListener('change', applyFilters);
 
     applyFilters();
 
+    // DETAIL VIEW TOGGLE
     const details = document.querySelectorAll('.event-detail');
-    document.querySelectorAll('.event-btn[data-detail-target]').forEach(btn => {
+    const detailButtons = document.querySelectorAll('.event-btn[data-detail-target]');
+
+    function hideAllDetails() {
+      details.forEach(sec => sec.style.display = 'none');
+      detailButtons.forEach(btn => btn.textContent = 'View details →');
+    }
+
+    detailButtons.forEach(btn => {
       btn.addEventListener('click', () => {
         const targetId = btn.dataset.detailTarget;
-        details.forEach(sec => {
-          sec.style.display = (sec.id === targetId) ? 'block' : 'none';
-        });
-        const el = document.getElementById(targetId);
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const section  = document.getElementById(targetId);
+        const isVisible = section.style.display === 'block';
+
+        if (isVisible) {
+          // hide
+          hideAllDetails();
+          const pastSection = document.getElementById('past-events');
+          if (pastSection) {
+            pastSection.scrollIntoView({ behavior:'smooth', block:'start' });
+          }
+        } else {
+          hideAllDetails();
+          section.style.display = 'block';
+          btn.textContent = 'Hide details ↑';
+          section.scrollIntoView({ behavior:'smooth', block:'start' });
+        }
+      });
+    });
+
+    // Close button inside detail
+    document.querySelectorAll('[data-detail-close]').forEach(closeBtn => {
+      closeBtn.addEventListener('click', () => {
+        hideAllDetails();
+        const pastSection = document.getElementById('past-events');
+        if (pastSection) {
+          pastSection.scrollIntoView({ behavior:'smooth', block:'start' });
         }
       });
     });
