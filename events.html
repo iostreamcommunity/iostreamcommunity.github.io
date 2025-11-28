@@ -18,6 +18,7 @@
       --muted:#5b6675;
       --bg:#ffffff;
       --ring:#e9eef3;
+      --radius:16px;
     }
 
     .footer-social a img{
@@ -31,7 +32,7 @@
     *{box-sizing:border-box;margin:0;padding:0}
     html,body{height:100%}
     body{
-      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
+      font-family:Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
       color:var(--ink);
       background:
         radial-gradient(1200px 800px at 70% -10%, #f4f7fa 20%, transparent 60%),
@@ -41,13 +42,9 @@
       text-rendering:optimizeLegibility;
     }
 
-    .page{
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
-    }
+    .page{}
 
-    /* HEADER */
+    /* HEADER (same as index) */
     .site-header{
       position:sticky;
       top:0;
@@ -58,6 +55,8 @@
     }
     .nav-wrap{
       width:100%;
+      max-width:100%;
+      margin-inline:auto;
       padding:.55rem 2rem .45rem;
       display:flex;
       align-items:center;
@@ -124,12 +123,6 @@
     .nav-links a:hover::after{
       width:100%;
     }
-    .nav-links a.active{
-      color:var(--accent-ink);
-    }
-    .nav-links a.active::after{
-      width:100%;
-    }
     .lang-toggle{
       font-size:.8rem;
       font-weight:600;
@@ -149,145 +142,322 @@
       font-weight:800;
     }
 
-    /* WRAP */
+    main{
+      padding:3.4rem 0 3.5rem;
+    }
     .wrap{
-      width:min(92%, 1100px);
+      width:min(92%, 1040px);
       margin-inline:auto;
-      padding:4.5rem 0 3.5rem;
     }
 
-    .card-hover{
-      transition:transform .18s ease, box-shadow .18s ease;
-    }
-    .card-hover:hover{
-      transform:translateY(-4px);
-      box-shadow:0 22px 60px rgba(15,23,42,.12);
-    }
-
-    /* BUTTON */
-    .btn-outline{
-      appearance:none;
-      cursor:pointer;
-      border:1px solid rgba(71,162,72,.4);
-      color:var(--accent-ink);
-      background:rgba(255,255,255,.9);
-      padding:.85rem 1.5rem;
-      border-radius:999px;
-      font-weight:700;
-      text-decoration:none;
-      display:inline-flex;
-      align-items:center;
-      gap:.5rem;
-      font-size:.95rem;
-      transition:background .18s ease, box-shadow .18s ease, transform .18s ease, color .18s ease;
-      box-shadow:0 0 0 rgba(15,23,42,0);
-    }
-    .btn-outline:hover{
-      background:#ecfdf3;
-      box-shadow:0 14px 32px rgba(22,101,52,.18);
-      transform:translateY(-1px);
-      color:#064e3b;
-    }
-
-    /* EVENTS LAYOUT */
+    /* HERO */
     .events-hero{
-      margin-bottom:2.4rem;
+      text-align:center;
+      margin-bottom:2.6rem;
     }
     .events-hero h1{
-      font-size:clamp(2.3rem,4.3vw,2.9rem);
+      font-size:clamp(2.4rem, 4.4vw, 3rem);
       font-weight:900;
-      letter-spacing:.04em;
-      margin-bottom:.3rem;
+      letter-spacing:.03em;
+      margin-bottom:.4rem;
     }
-    .events-sub{
-      color:var(--muted);
+    .events-hero p{
       font-size:1.02rem;
+      color:var(--muted);
+      max-width:40rem;
+      margin-inline:auto;
     }
 
-    .event-main-card{
-      background:#fff;
-      border-radius:30px;
-      border:1px solid var(--ring);
-      box-shadow:0 20px 55px rgba(15,23,42,.08);
-      padding:2.1rem 2.3rem;
-      display:grid;
-      grid-template-columns:minmax(0,380px) minmax(0,1fr);
-      gap:2.6rem;
+    /* FILTER BAR */
+    .filter-shell{
+      padding:0 0 2.4rem;
+    }
+    .filter-bar{
+      background:rgba(15,118,48,0.04);
+      border-radius:24px;
+      border:1px solid rgba(15,118,48,0.12);
+      box-shadow:0 22px 60px rgba(15,23,42,0.07);
+      padding:1.1rem 1.2rem;
+      display:flex;
+      flex-wrap:wrap;
+      gap:.8rem;
       align-items:center;
-      margin-bottom:3.3rem;
+    }
+    .filter-search{
+      flex:2 1 220px;
+      position:relative;
+    }
+    .filter-search input{
+      width:100%;
+      padding:.7rem .85rem .7rem 2.1rem;
+      border-radius:999px;
+      border:1px solid var(--ring);
+      font-size:.95rem;
+      outline:none;
+      background:#ffffff;
+    }
+    .filter-search input:focus{
+      border-color:rgba(15,118,48,0.7);
+      box-shadow:0 0 0 1px rgba(15,118,48,0.15);
+    }
+    .filter-search-icon{
+      position:absolute;
+      left:.8rem;
+      top:50%;
+      transform:translateY(-50%);
+      font-size:.9rem;
+      opacity:.6;
+    }
+    .filter-select{
+      flex:0 1 150px;
+      position:relative;
+    }
+    .filter-select select{
+      width:100%;
+      padding:.7rem 2.1rem .7rem .9rem;
+      border-radius:999px;
+      border:1px solid var(--ring);
+      font-size:.9rem;
+      background:#ffffff;
+      appearance:none;
+      -webkit-appearance:none;
+      -moz-appearance:none;
+      outline:none;
+    }
+    .filter-select:after{
+      content:"▾";
+      position:absolute;
+      right:.9rem;
+      top:50%;
+      transform:translateY(-50%);
+      font-size:.7rem;
+      color:#6b7280;
+      pointer-events:none;
     }
 
-    .event-photo-card{
-      border-radius:26px;
-      overflow:hidden;
-      background:#fff;
-      box-shadow:0 16px 40px rgba(15,23,42,.14);
+    /* SECTIONS */
+    .events-section{
+      margin-top:2.4rem;
+    }
+    .events-section-header{
+      font-weight:800;
+      font-size:1.05rem;
+      margin-bottom:1rem;
+    }
+    .events-section-sub{
+      font-size:.9rem;
+      color:var(--muted);
+      margin-bottom:1.4rem;
+    }
+
+    .events-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+      gap:1.4rem;
+    }
+
+    .event-card{
+      background:#ffffff;
+      border-radius:20px;
+      border:1px solid var(--ring);
+      box-shadow:0 14px 40px rgba(15,23,42,0.06);
+      padding:1.1rem 1.2rem 1.2rem;
       display:flex;
       flex-direction:column;
+      gap:.9rem;
     }
-    .event-photo-card img{
-      display:block;
+
+    .event-image-wrap{
+      border-radius:16px;
+      overflow:hidden;
+      margin:-.3rem -.2rem .4rem;
+    }
+    .event-image-wrap img{
       width:100%;
-      height:auto;
+      height:220px;
+      object-fit:cover;
+      display:block;
     }
-    .event-photo-caption{
-      padding:.9rem 1.2rem 1.1rem;
-      text-align:center;
+
+    .event-title{
       font-weight:700;
       font-size:1.02rem;
+      margin-bottom:.15rem;
+    }
+    .event-description{
+      font-size:.92rem;
+      color:var(--muted);
+      line-height:1.5;
     }
 
-    .event-text{
-      font-size:1.02rem;
-      line-height:1.7;
+    .event-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.45rem;
+      margin-top:.25rem;
+    }
+    .pill{
+      font-size:.75rem;
+      padding:.25rem .6rem;
+      border-radius:999px;
+      border:1px solid rgba(15,118,48,0.2);
+      background:rgba(15,118,48,0.04);
+      color:#166534;
+      font-weight:600;
+    }
+    .pill--neutral{
+      border-color:rgba(148,163,184,0.5);
       color:#4b5563;
-    }
-    .event-yt{
-      margin-top:1.4rem;
+      background:#f9fafb;
     }
 
-    /* STATS */
-    .event-stats{
-      margin-top:.4rem;
+    .event-footer-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:.6rem;
+      margin-top:.25rem;
     }
+    .event-date{
+      font-size:.82rem;
+      color:#6b7280;
+    }
+    .event-btn{
+      border:none;
+      border-radius:999px;
+      padding:.55rem 1.1rem;
+      font-size:.85rem;
+      font-weight:700;
+      cursor:pointer;
+      background:#047857;
+      color:#f9fafb;
+      box-shadow:0 10px 30px rgba(5,150,105,0.45);
+      display:inline-flex;
+      align-items:center;
+      gap:.35rem;
+      white-space:nowrap;
+    }
+    .event-btn:hover{
+      filter:brightness(.97);
+      transform:translateY(-1px);
+    }
+    .event-btn:active{
+      transform:none;
+      box-shadow:0 4px 16px rgba(5,150,105,0.35);
+    }
+
+    .empty-message{
+      grid-column:1 / -1;
+      font-size:.9rem;
+      color:#6b7280;
+      text-align:center;
+      padding:1.2rem .6rem 0;
+      display:none;
+    }
+
+    /* DETAIL SECTION (IT CAMP 2025) */
+    .event-detail{
+      margin-top:3.2rem;
+      padding:2.2rem 1.8rem 2.4rem;
+      border-radius:28px;
+      border:1px solid var(--ring);
+      background:#ffffff;
+      box-shadow:0 24px 60px rgba(15,23,42,0.08);
+      display:none; /* shown when button clicked */
+    }
+    .event-detail-inner{
+      display:grid;
+      grid-template-columns:minmax(0, 1.2fr) minmax(0, 1.4fr);
+      gap:2rem;
+      align-items:center;
+    }
+    .event-detail-photo{
+      border-radius:24px;
+      overflow:hidden;
+      background:#000;
+    }
+    .event-detail-photo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .event-detail-body h2{
+      font-size:1.4rem;
+      font-weight:800;
+      margin-bottom:.4rem;
+    }
+    .event-detail-body p.lead{
+      font-size:.98rem;
+      color:var(--muted);
+      margin-bottom:1.5rem;
+    }
+
     .stats-grid{
       display:grid;
-      grid-template-columns:repeat(2,minmax(0,260px));
-      gap:2rem 5rem;
-      margin-bottom:2.4rem;
+      grid-template-columns:repeat(4, minmax(0, 1fr));
+      gap:1.2rem;
+      margin-bottom:1.8rem;
     }
     .stat-item{
       display:flex;
-      align-items:baseline;
-      gap:1.1rem;
+      flex-direction:column;
+      gap:.15rem;
+      font-size:.9rem;
+      color:#374151;
     }
     .stat-number{
-      font-size:3.1rem;
+      font-size:1.6rem;
       font-weight:800;
-      color:var(--accent);
-      line-height:1;
-      min-width:2.5ch;
+      color:#16a34a;
     }
-    .stat-label{
-      font-size:1.02rem;
-      font-weight:600;
-      color:#111827;
-    }
-
-    .event-note{
-      max-width:960px;
-      font-size:1rem;
-      line-height:1.7;
+    .event-detail-body p.bottom{
+      font-size:.95rem;
       color:#4b5563;
+      line-height:1.6;
     }
 
-    /* FOOTER */
+    @media (max-width:920px){
+      .event-detail-inner{
+        grid-template-columns:1fr;
+      }
+    }
+    @media (max-width:768px){
+      .nav-wrap{
+        flex-direction:column;
+        align-items:flex-start;
+        padding-inline:1.25rem;
+      }
+      .nav-right{
+        width:100%;
+        justify-content:space-between;
+      }
+      .filter-bar{
+        padding:1rem .9rem;
+      }
+    }
+    @media (max-width:560px){
+      .nav-right{
+        flex-direction:column-reverse;
+        align-items:flex-end;
+        gap:.6rem;
+      }
+      .nav-links{
+        gap:.75rem;
+        flex-wrap:wrap;
+      }
+      .stats-grid{
+        grid-template-columns:repeat(2, minmax(0,1fr));
+      }
+    }
+
+    /* FOOTER (same as index) */
     footer{
+      margin-top:3rem;
       padding:2.5rem 1rem 1.6rem;
       color:#c5c9d3;
       font-size:.9rem;
       background:#050816;
-      margin-top:auto;
     }
     .footer-inner{
       width:min(92%, 1040px);
@@ -389,30 +559,7 @@
       font-size:.82rem;
       color:#6b7280;
     }
-
-    /* responsive */
-    @media (max-width:900px){
-      .event-main-card{
-        grid-template-columns:1fr;
-        padding:1.8rem 1.6rem;
-      }
-    }
     @media (max-width:768px){
-      .nav-wrap{
-        flex-direction:column;
-        align-items:flex-start;
-        padding-inline:1.25rem;
-      }
-      .nav-right{
-        width:100%;
-        justify-content:space-between;
-      }
-      .wrap{
-        padding-top:4.2rem;
-      }
-      .stats-grid{
-        grid-template-columns:1fr;
-      }
       .footer-grid{
         grid-template-columns:1fr 1fr;
         row-gap:2rem;
@@ -428,7 +575,6 @@
 <body>
 <div class="page">
 
-  <!-- HEADER -->
   <header class="site-header">
     <div class="nav-wrap">
       <div class="nav-left">
@@ -444,7 +590,7 @@
       <div class="nav-right">
         <nav class="nav-links">
           <a href="index.html">Home</a>
-          <a href="events.html" class="active">Events</a>
+          <a href="events.html">Events</a>
           <a href="about.html">About</a>
           <a href="contact.html">Contact</a>
         </nav>
@@ -455,89 +601,186 @@
     </div>
   </header>
 
-  <!-- MAIN -->
-  <main class="wrap">
-    <section class="events-hero">
-      <h1>Events</h1>
-      <p class="events-sub">A look at our first community project, IT CAMP 2025.</p>
-    </section>
+  <main>
+    <div class="wrap">
+      <section class="events-hero">
+        <h1>Events</h1>
+        <p>
+          Discover coding camps, olympiad trainings, and tech projects organized or supported
+          by the IOSTREAM Community for young people in Azerbaijan.
+        </p>
+      </section>
 
-    <!-- IMAGE + TEXT CARD (old layout) -->
-    <section class="event-main-card card-hover">
-      <div class="event-photo-wrap">
-        <div class="event-photo-card">
-          <!-- your camp photo -->
-          <img src="event-photo.png" alt="IT CAMP 2025 group photo">
-          <div class="event-photo-caption">IT CAMP 2025</div>
+      <section class="filter-shell">
+        <div class="filter-bar">
+          <div class="filter-search">
+            <span class="filter-search-icon">🔍</span>
+            <input id="searchInput" type="text"
+                   placeholder="Search events, camps, workshops...">
+          </div>
+
+          <div class="filter-select">
+            <select id="typeFilter">
+              <option value="all">All types</option>
+              <option value="camp">Camp</option>
+              <option value="workshop">Workshop</option>
+              <option value="olympiad">Olympiad training</option>
+              <option value="internship">Internship</option>
+              <option value="talk">Talk / meetup</option>
+            </select>
+          </div>
+
+          <div class="filter-select">
+            <select id="modeFilter">
+              <option value="all">Any mode</option>
+              <option value="in-person">In person</option>
+              <option value="online">Online</option>
+              <option value="hybrid">Hybrid</option>
+            </select>
+          </div>
+
+          <div class="filter-select">
+            <select id="statusFilter">
+              <option value="all">All status</option>
+              <option value="current">Current</option>
+              <option value="past">Past</option>
+            </select>
+          </div>
         </div>
-      </div>
+      </section>
 
-      <div>
-        <p class="event-text">
-          Our first community project, IT CAMP 2025, brought together motivated high school students
-          who are passionate about computer science and IT. Below you can see a quick snapshot of the camp in numbers.
+      <section class="events-section">
+        <div class="events-section-header">Current events</div>
+        <p class="events-section-sub">
+          We’re planning our next coding camps and olympiad trainings. Stay tuned!
+        </p>
+        <div class="events-grid" data-section="current">
+          <article class="event-card"
+                   data-type="all"
+                   data-mode="online"
+                   data-status="current"
+                   data-search="coming soon upcoming events iostream community">
+            <div class="event-title">New events coming soon</div>
+            <p class="event-description">
+              There are no live events at the moment. Follow us on Instagram and WhatsApp
+              to be the first to hear about new camps, trainings, and projects.
+            </p>
+            <div class="event-meta">
+              <span class="pill pill--neutral">Announcement</span>
+            </div>
+            <div class="event-footer-row">
+              <span class="event-date">Status: planning</span>
+            </div>
+          </article>
+
+          <p class="empty-message">No current events match your filters.</p>
+        </div>
+      </section>
+
+      <section class="events-section">
+        <div class="events-section-header">Past events</div>
+        <p class="events-section-sub">
+          A look at the projects we’ve already run with motivated students.
         </p>
 
-        <a class="btn-outline event-yt"
-           href="https://www.youtube.com/watch?v=7BiRbAjH2cQ"
-           target="_blank" rel="noopener noreferrer">
-          ▶ Watch IT CAMP 2025 recap on YouTube
-        </a>
-      </div>
-    </section>
+        <div class="events-grid" data-section="past">
+          <article class="event-card"
+                   data-type="camp"
+                   data-mode="in-person"
+                   data-status="past"
+                   data-search="it camp 2025 summer programming olympiad training low income high school students">
+            <div class="event-image-wrap">
+              <img src="event-photo.png" alt="Students at IT CAMP 2025">
+            </div>
+            <div class="event-title">IT CAMP 2025</div>
+            <p class="event-description">
+              Our first summer camp for high school students interested in computer science and IT,
+              focusing on algorithms, olympiads, and project work in Baku.
+            </p>
+            <div class="event-meta">
+              <span class="pill">Camp</span>
+              <span class="pill">In person</span>
+              <span class="pill">Free</span>
+            </div>
+            <div class="event-footer-row">
+              <span class="event-date">July 2025 · Baku</span>
+              <button class="event-btn" data-detail-target="itcamp2025">
+                View details →
+              </button>
+            </div>
+          </article>
 
-    <!-- STATS -->
-    <section class="event-stats">
-      <div class="stats-grid">
-        <div class="stat-item">
-          <div class="stat-number">69</div>
-          <div class="stat-label">Applications</div>
+          <p class="empty-message">No past events match your filters.</p>
         </div>
-        <div class="stat-item">
-          <div class="stat-number">36</div>
-          <div class="stat-label">Classes</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">20</div>
-          <div class="stat-label">Selected students</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">8</div>
-          <div class="stat-label">Analytical topics</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">17</div>
-          <div class="stat-label">Active students</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">80</div>
-          <div class="stat-label">Question types</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">3</div>
-          <div class="stat-label">Winners</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">24</div>
-          <div class="stat-label">Learning resources</div>
-        </div>
-      </div>
+      </section>
 
-      <p class="event-note">
-        Together with low-income students interested in computer science and IT, we launched the first project of our
-        community, IT CAMP 2025. Throughout the camp, we worked with students on many di]erent mpvzu and question types.
-        At the end, the top 3 students were selected as winners based on the final exam, class activity, and homework scores.
-        All students were presented with certificates and gifts. Don't forget to follow our Instagram page and join our
-        WhatsApp channel to stay informed about future projects!
-      </p>
-    </section>
+      <section class="event-detail" id="itcamp2025">
+        <div class="event-detail-inner">
+          <div class="event-detail-photo">
+            <img src="event-photo.png" alt="IT CAMP 2025 group photo">
+          </div>
+          <div class="event-detail-body">
+            <h2>IT CAMP 2025</h2>
+            <p class="lead">
+              Our first community project, IT CAMP 2025, brought together motivated high school
+              students who are passionate about computer science and IT. Below you can see a quick
+              snapshot of the camp in numbers.
+            </p>
+
+            <div class="stats-grid">
+              <div class="stat-item">
+                <div class="stat-number">69</div>
+                <div>Applications</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">36</div>
+                <div>Classes</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">20</div>
+                <div>Selected students</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">8</div>
+                <div>Analytical topics</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">17</div>
+                <div>Active students</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">80</div>
+                <div>Question types</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">3</div>
+                <div>Winners</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">24</div>
+                <div>Learning resources</div>
+              </div>
+            </div>
+
+            <p class="bottom">
+              Together with low-income students interested in computer science and IT, we launched the
+              first project of our community, IT CAMP 2025. Throughout the camp, we worked with students
+              on many different mövzu and question types. At the end, the top 3 students were selected
+              as winners based on the final exam, class activity, and homework scores. All students were
+              presented with certificates and gifts. Don't forget to follow our Instagram page and join
+              our WhatsApp channel to stay informed about future projects!
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </div>
   </main>
 
-  <!-- FOOTER -->
-  <footer id="contact">
+  <footer>
     <div class="footer-inner">
       <div class="footer-grid">
-        <div class="footer-brand" id="about-footer">
+        <div class="footer-brand">
           <div class="footer-brand-title">
             <img src="logo.jpeg" alt="IOSTREAM Community logo" class="footer-logo">
             <div><strong>IOSTREAM Community</strong></div>
@@ -547,16 +790,15 @@
             to learn, build, and grow together.
           </p>
           <div class="footer-social">
-            <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+            <a href="https://www.instagram.com/iostreamcommunity/" target="_blank" aria-label="Instagram">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                   stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                   xmlns="http://www.w3.org/2000/svg">
+                   stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
               </svg>
             </a>
-            <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/company/iostreamcommunity/" target="_blank" aria-label="LinkedIn">
               <svg viewBox="0 0 24 24" fill="currentColor">
                 <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4v12h-4V8zm7.5 0h3.8v1.7h.06c.53-.98 1.82-2 3.75-2 4 0 4.74 2.63 4.74 6v6.3h-4v-5.6c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.95v5.7h-4V8z"/>
               </svg>
@@ -605,5 +847,66 @@
   </footer>
 
 </div>
+
+<script>
+  (function() {
+    const searchInput = document.getElementById('searchInput');
+    const typeFilter  = document.getElementById('typeFilter');
+    const modeFilter  = document.getElementById('modeFilter');
+    const statusFilter = document.getElementById('statusFilter');
+    const cards = Array.from(document.querySelectorAll('.event-card'));
+
+    function applyFilters() {
+      const q = (searchInput.value || '').trim().toLowerCase();
+      const typeVal = typeFilter.value;
+      const modeVal = modeFilter.value;
+      const statusVal = statusFilter.value;
+
+      cards.forEach(card => {
+        const type   = card.dataset.type || 'all';
+        const mode   = card.dataset.mode || 'all';
+        const status = card.dataset.status || 'all';
+        const search = (card.dataset.search || '').toLowerCase();
+
+        const matchType   = (typeVal === 'all'   || type === typeVal);
+        const matchMode   = (modeVal === 'all'   || mode === modeVal);
+        const matchStatus = (statusVal === 'all' || status === statusVal);
+        const matchSearch = !q || search.includes(q);
+
+        const visible = matchType && matchMode && matchStatus && matchSearch;
+        card.style.display = visible ? '' : 'none';
+      });
+
+      document.querySelectorAll('.events-grid').forEach(grid => {
+        const visibleCards = Array.from(grid.querySelectorAll('.event-card'))
+          .some(card => card.style.display !== 'none');
+        const msg = grid.querySelector('.empty-message');
+        if (!msg) return;
+        msg.style.display = visibleCards ? 'none' : 'block';
+      });
+    }
+
+    searchInput.addEventListener('input', applyFilters);
+    typeFilter.addEventListener('change', applyFilters);
+    modeFilter.addEventListener('change', applyFilters);
+    statusFilter.addEventListener('change', applyFilters);
+
+    applyFilters();
+
+    const details = document.querySelectorAll('.event-detail');
+    document.querySelectorAll('.event-btn[data-detail-target]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.dataset.detailTarget;
+        details.forEach(sec => {
+          sec.style.display = (sec.id === targetId) ? 'block' : 'none';
+        });
+        const el = document.getElementById(targetId);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  })();
+</script>
 </body>
 </html>
