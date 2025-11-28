@@ -2,20 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <title>IOSTREAM Community</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <link rel="icon" type="image/png" sizes="512x512" href="logo-02.png">
   <link rel="icon" type="image/png" sizes="192x192" href="logo-02.png">
   <link rel="icon" type="image/png" sizes="32x32" href="logo-02.png">
   <link rel="icon" type="image/png" sizes="16x16" href="logo-02.png">
 
-  <title>IOSTREAM Community</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <meta name="description" content="IOSTREAM Community — gənclər üçün proqramlaşdırma, olimpiada, startup və texnologiya.">
-  <meta property="og:title" content="IOSTREAM Community">
-  <meta property="og:description" content="Yeniliklər barədə məlumat veriləcək.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://iostreamcommunity.github.io/">
-  <meta property="og:image" content="https://iostreamcommunity.github.io/logo.jpeg">
+  <meta name="description" content="IOSTREAM Community — programming, olympiads, startups and technology for young people.">
 
   <style>
     :root{
@@ -25,7 +20,6 @@
       --muted:#5b6675;
       --bg:#ffffff;
       --ring:#e9eef3;
-      --radius:16px;
     }
 
     .footer-social a img{
@@ -38,6 +32,7 @@
 
     *{box-sizing:border-box;margin:0;padding:0}
     html,body{height:100%}
+
     body{
       color:var(--ink);
       background:
@@ -146,13 +141,6 @@
       width:100%;
     }
 
-    .nav-links a.active{
-      color:var(--accent-ink);
-    }
-    .nav-links a.active::after{
-      width:100%;
-    }
-
     .lang-toggle{
       font-size:.8rem;
       font-weight:600;
@@ -177,12 +165,14 @@
       width:min(92%, 960px);
       margin-inline:auto;
       text-align:center;
-      padding:6.5rem 0 3.5rem;
+      padding:6.5rem 0 4.5rem;
+      flex:1;
+      min-height:calc(100vh - 220px);
     }
 
-    .page-title{
+    h1{
       margin-top:1rem;
-      margin-bottom:.3rem;
+      margin-bottom:1rem;
       font-size:clamp(2.8rem, 5.4vw, 3.8rem);
       font-weight:900;
       letter-spacing:.02em;
@@ -194,7 +184,7 @@
       color:transparent;
     }
 
-    .page-subtitle{
+    .sub{
       margin-top:.4rem;
       color:var(--muted);
       font-size:clamp(1rem, 2.1vw, 1.1rem);
@@ -202,53 +192,12 @@
       margin-inline:auto;
     }
 
-    .card{
-      margin:2.4rem auto 0;
-      padding:1.8rem 1.7rem;
-      background:#fff;
-      border-radius:24px;
-      border:1px solid var(--ring);
-      box-shadow:0 18px 45px rgba(15,23,42,.08);
-      max-width:36rem;
-      text-align:left;
-    }
-
-    /* shared hover motion for cards */
-    .card-hover,
-    .team-card,
-    .contact-card-outer,
-    .stats-item{
-      transition:transform .18s ease, box-shadow .18s ease;
-    }
-    .card-hover:hover,
-    .team-card:hover,
-    .contact-card-outer:hover,
-    .stats-item:hover{
-      transform:translateY(-4px);
-      box-shadow:0 22px 60px rgba(15,23,42,.12);
-    }
-
-    .card-title{
-      font-weight:700;
-      font-size:.98rem;
-      color:#111827;
-      margin-bottom:.4rem;
-      text-transform:uppercase;
-      letter-spacing:.17em;
-    }
-
-    .card p{
-      font-size:.95rem;
-      color:var(--muted);
-      line-height:1.5;
-    }
-
     .cta-row{
       display:flex;
       gap:.8rem;
       justify-content:center;
       flex-wrap:wrap;
-      margin-top:1.2rem;
+      margin-top:2.6rem;
     }
 
     .btn{
@@ -257,7 +206,7 @@
       border:1px solid rgba(71,162,72,.35);
       color:#0b1c10;
       background:var(--accent);
-      padding:.9rem 1.45rem;
+      padding:.9rem 1.7rem;
       border-radius:12px;
       font-weight:800;
       text-decoration:none;
@@ -267,6 +216,7 @@
       font-size:.96rem;
       transition:filter .18s ease, transform .18s ease, box-shadow .18s ease;
       box-shadow:0 12px 30px rgba(71,162,72,.22);
+      white-space:nowrap;
     }
     .btn:hover{
       transform:translateY(-1px);
@@ -398,12 +348,6 @@
       color:#6b7280;
     }
 
-    .footer-bottom a{
-      color:#9ca3af;
-      text-decoration:none;
-    }
-    .footer-bottom a:hover{text-decoration:underline}
-
     @media (max-width:768px){
       .nav-wrap{
         flex-direction:column;
@@ -416,6 +360,7 @@
       }
       .wrap{
         padding-top:4.8rem;
+        min-height:calc(100vh - 260px);
       }
       .footer-grid{
         grid-template-columns:1fr 1fr;
@@ -433,9 +378,6 @@
         gap:.75rem;
         flex-wrap:wrap;
       }
-      .card{
-        text-align:left;
-      }
       .footer-grid{
         grid-template-columns:1fr;
       }
@@ -448,7 +390,7 @@
     <header class="site-header">
       <div class="nav-wrap">
         <div class="nav-left">
-          <a href="index.html" class="nav-brand-link">
+          <a href="index.html#home" class="nav-brand-link">
             <img src="logo.jpeg" alt="IOSTREAM Community logo" class="logo-sm">
             <div>
               <div class="brand-text">IOSTREAM Community</div>
@@ -459,7 +401,7 @@
 
         <div class="nav-right">
           <nav class="nav-links">
-            <a href="index.html" class="active">Home</a>
+            <a href="index.html#home">Home</a>
             <a href="events.html">Events</a>
             <a href="about.html">About</a>
             <a href="contact.html">Contact</a>
@@ -472,30 +414,23 @@
     </header>
 
     <main class="wrap" id="home">
-      <h1 class="page-title">Learn together. Achieve more.</h1>
-      <p class="page-subtitle">
+      <h1>Learn together. Achieve more.</h1>
+      <p class="sub">
         Everything about programming, olympiads, startups, and technology for young people to learn, build, and grow.
       </p>
 
-      <section class="card card-hover" id="events">
-        <div class="card-title">IT SUMMER CAMP 2025</div>
-        <p>
-          Get a glimpse of our summer event where high school students dive into coding,
-          problem solving, olympiads and startup projects with our mentors.
-        </p>
-        <div class="cta-row">
-          <a class="btn" href="https://iostreamcommunity.github.io/itkamp2025/">
-            Discover IT Summer Camp 2025
-          </a>
-        </div>
-      </section>
+      <div class="cta-row">
+        <a class="btn" href="about.html#team">
+          Meet with our Team
+        </a>
+      </div>
     </main>
 
     <!-- FOOTER -->
     <footer id="contact">
       <div class="footer-inner">
         <div class="footer-grid">
-          <div class="footer-brand" id="about">
+          <div class="footer-brand" id="about-footer">
             <div class="footer-brand-title">
               <img src="logo.jpeg" alt="IOSTREAM Community logo" class="footer-logo">
               <div><strong>IOSTREAM Community</strong></div>
@@ -505,7 +440,7 @@
               to learn, build, and grow together.
             </p>
             <div class="footer-social">
-              <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+              <a href="https://www.instagram.com/iostreamcommunity/" target="_blank" aria-label="Instagram">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                      stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                      xmlns="http://www.w3.org/2000/svg">
@@ -514,13 +449,13 @@
                   <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                 </svg>
               </a>
-              <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/company/iostreamcommunity/" target="_blank" aria-label="LinkedIn">
                 <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                   <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4v12h-4V8zm7.5 0h3.8v1.7h.06c.53-.98 1.82-2 3.75-2 4 0 4.74 2.63 4.74 6v6.3h-4v-5.6c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.95v5.7h-4V8z"/>
                 </svg>
               </a>
-              <a href="https://wa.me" target="_blank">
-                <img src="whatsapp.png" alt="WhatsApp" class="wa-icon">
+              <a href="https://wa.me" target="_blank" aria-label="WhatsApp">
+                <img src="whatsapp.png" alt="WhatsApp">
               </a>
             </div>
           </div>
@@ -528,7 +463,7 @@
           <div>
             <div class="footer-col-title">Quick Links</div>
             <div class="footer-links">
-              <a href="index.html">Home</a>
+              <a href="index.html#home">Home</a>
               <a href="events.html">Events</a>
               <a href="about.html">About</a>
               <a href="contact.html">Contact</a>
