@@ -264,7 +264,7 @@
       gap:.9rem;
     }
 
-    /* New interactive cover for cards */
+    /* Interactive cover for cards */
     .event-cover{
       border-radius:18px;
       margin:-.3rem -.2rem .6rem;
@@ -289,13 +289,11 @@
       font-size:1.5rem;
       flex-shrink:0;
     }
-
     .event-cover-icon img{
-  width:28px;
-  height:28px;
-  object-fit:contain;
-}
-
+      width:28px;
+      height:28px;
+      object-fit:contain;
+    }
     .event-cover-text{
       text-align:left;
     }
@@ -446,7 +444,7 @@
     .event-detail-body h2{
       font-size:1.4rem;
       font-weight:800;
-      margin-bottom:.4rem;
+      margin-bottom:.9rem; /* more space above stats */
     }
     .event-detail-body p.lead{
       font-size:.98rem;
@@ -650,7 +648,7 @@
 
       <div class="nav-right">
         <nav class="nav-links">
-          <a href="index.html">Events</a>
+          <a href="index.html">Home</a>
           <a href="events.html">Events</a>
           <a href="about.html">About</a>
           <a href="contact.html">Contact</a>
@@ -767,15 +765,15 @@
                    data-status="past"
                    data-format="individual"
                    data-search="it camp 2025 summer programming olympiad training low income high school students individual">
-         <div class="event-cover">
-  <div class="event-cover-icon">
-    <img src="logo-02.png" alt="IOSTREAM logo">
-  </div>
-  <div class="event-cover-text">
-    <div class="event-cover-eyebrow">Summer Camp · 2025</div>
-    <div class="event-cover-title">IT CAMP 2025 — Baku</div>
-  </div>
-</div>
+            <div class="event-cover">
+              <div class="event-cover-icon">
+                <img src="logo-02.png" alt="IOSTREAM logo">
+              </div>
+              <div class="event-cover-text">
+                <div class="event-cover-eyebrow">Summer Camp · 2025</div>
+                <div class="event-cover-title">IT CAMP 2025 — Baku</div>
+              </div>
+            </div>
 
             <div class="event-title">IT CAMP 2025</div>
             <p class="event-description">
@@ -811,6 +809,7 @@
           </div>
           <div class="event-detail-body">
             <h2>IT CAMP 2025</h2>
+
             <div class="stats-grid">
               <div class="stat-item">
                 <div class="stat-number">69</div>
@@ -966,6 +965,7 @@
         const visible = matchType && matchMode && matchStatus && matchFormat && matchSearch;
         card.style.display = visible ? '' : 'none';
       });
+
       document.querySelectorAll('.events-grid').forEach(grid => {
         const visibleCards = Array.from(grid.querySelectorAll('.event-card'))
           .some(card => card.style.display !== 'none');
@@ -999,7 +999,6 @@
         const isVisible = section.style.display === 'block';
 
         if (isVisible) {
-          // hide
           hideAllDetails();
           const pastSection = document.getElementById('past-events');
           if (pastSection) {
@@ -1013,6 +1012,8 @@
         }
       });
     });
+
+    // Close button inside detail
     document.querySelectorAll('[data-detail-close]').forEach(closeBtn => {
       closeBtn.addEventListener('click', () => {
         hideAllDetails();
