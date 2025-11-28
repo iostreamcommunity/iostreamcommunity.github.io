@@ -149,163 +149,136 @@
       font-weight:800;
     }
 
-    /* PAGE WRAP + TITLES */
+    /* WRAP */
     .wrap{
       width:min(92%, 1100px);
       margin-inline:auto;
       padding:4.5rem 0 3.5rem;
     }
-    .page-title{
-      font-size:clamp(2.4rem, 4.6vw, 3.3rem);
-      font-weight:900;
-      letter-spacing:.03em;
-      margin-bottom:.4rem;
-    }
-    .page-subtitle{
-      color:var(--muted);
-      font-size:1.05rem;
-      margin-bottom:2.8rem;
-    }
 
-    /* shared hover motion */
-    .card-hover,
-    .team-card,
-    .contact-card-outer,
-    .stats-item,
-    .event-extra-card{
+    .card-hover{
       transition:transform .18s ease, box-shadow .18s ease;
     }
-    .card-hover:hover,
-    .team-card:hover,
-    .contact-card-outer:hover,
-    .stats-item:hover,
-    .event-extra-card:hover{
+    .card-hover:hover{
       transform:translateY(-4px);
       box-shadow:0 22px 60px rgba(15,23,42,.12);
     }
 
-    /* HERO EVENT SECTION */
-    .event-shell{
-      border-radius:32px;
-      background:#fff;
-      border:1px solid var(--ring);
-      box-shadow:0 20px 60px rgba(15,23,42,.08);
-      padding:2.2rem 2.4rem;
-      margin-bottom:3rem;
+    /* BUTTON */
+    .btn-outline{
+      appearance:none;
+      cursor:pointer;
+      border:1px solid rgba(71,162,72,.4);
+      color:var(--accent-ink);
+      background:rgba(255,255,255,.9);
+      padding:.85rem 1.5rem;
+      border-radius:999px;
+      font-weight:700;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:.5rem;
+      font-size:.95rem;
+      transition:background .18s ease, box-shadow .18s ease, transform .18s ease, color .18s ease;
+      box-shadow:0 0 0 rgba(15,23,42,0);
     }
-    .event-layout{
+    .btn-outline:hover{
+      background:#ecfdf3;
+      box-shadow:0 14px 32px rgba(22,101,52,.18);
+      transform:translateY(-1px);
+      color:#064e3b;
+    }
+
+    /* EVENTS LAYOUT */
+    .events-hero{
+      margin-bottom:2.4rem;
+    }
+    .events-hero h1{
+      font-size:clamp(2.3rem,4.3vw,2.9rem);
+      font-weight:900;
+      letter-spacing:.04em;
+      margin-bottom:.3rem;
+    }
+    .events-sub{
+      color:var(--muted);
+      font-size:1.02rem;
+    }
+
+    .event-main-card{
+      background:#fff;
+      border-radius:30px;
+      border:1px solid var(--ring);
+      box-shadow:0 20px 55px rgba(15,23,42,.08);
+      padding:2.1rem 2.3rem;
       display:grid;
-      grid-template-columns:minmax(0, 1.1fr) minmax(0, 1.4fr);
+      grid-template-columns:minmax(0,380px) minmax(0,1fr);
       gap:2.6rem;
       align-items:center;
+      margin-bottom:3.3rem;
     }
+
     .event-photo-card{
-      background:#fff;
-      border-radius:28px;
-      box-shadow:0 22px 60px rgba(15,23,42,.16);
+      border-radius:26px;
       overflow:hidden;
-      text-align:center;
+      background:#fff;
+      box-shadow:0 16px 40px rgba(15,23,42,.14);
+      display:flex;
+      flex-direction:column;
     }
     .event-photo-card img{
       display:block;
       width:100%;
       height:auto;
     }
-    .event-photo-label{
-      padding:1rem 1.2rem 1.2rem;
+    .event-photo-caption{
+      padding:.9rem 1.2rem 1.1rem;
+      text-align:center;
       font-weight:700;
-      letter-spacing:.06em;
-      font-size:.95rem;
-      text-transform:uppercase;
-    }
-    .event-text p{
-      color:#4b5563;
-      line-height:1.6;
       font-size:1.02rem;
-      margin-bottom:1.6rem;
     }
 
-    /* YouTube button (outline style) */
-    .btn{
-      appearance:none;
-      cursor:pointer;
-      border-radius:999px;
-      padding:.85rem 1.7rem;
-      font-weight:700;
-      font-size:.96rem;
-      display:inline-flex;
-      align-items:center;
-      gap:.55rem;
-      text-decoration:none;
-      transition:background .18s ease, box-shadow .18s ease, transform .18s ease;
+    .event-text{
+      font-size:1.02rem;
+      line-height:1.7;
+      color:#4b5563;
     }
-    .btn-outline{
-      border:1px solid rgba(71,162,72,.4);
-      background:#f9fafb;
-      color:var(--accent-ink);
-      box-shadow:0 12px 30px rgba(15,23,42,.04);
-    }
-    .btn-outline:hover{
-      background:#ecfdf3;
-      transform:translateY(-1px);
-      box-shadow:0 16px 40px rgba(71,162,72,.18);
-    }
-    .btn-outline span.icon{
-      width:20px;
-      height:20px;
-      border-radius:999px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      background:rgba(71,162,72,.1);
-      font-size:.8rem;
+    .event-yt{
+      margin-top:1.4rem;
     }
 
     /* STATS */
-    .stats-section{
-      margin-bottom:2.8rem;
+    .event-stats{
+      margin-top:.4rem;
     }
     .stats-grid{
       display:grid;
-      grid-template-columns:repeat(4,minmax(0,1fr));
-      gap:2.4rem 3.2rem;
+      grid-template-columns:repeat(2,minmax(0,260px));
+      gap:2rem 5rem;
+      margin-bottom:2.4rem;
     }
-    .stats-item{
+    .stat-item{
       display:flex;
-      flex-direction:column;
-      gap:.25rem;
+      align-items:baseline;
+      gap:1.1rem;
     }
-    .stats-number{
-      font-size:2.6rem;
+    .stat-number{
+      font-size:3.1rem;
       font-weight:800;
       color:var(--accent);
+      line-height:1;
+      min-width:2.5ch;
     }
-    .stats-label{
+    .stat-label{
       font-size:1.02rem;
       font-weight:600;
+      color:#111827;
     }
 
-    /* EXTRA EVENT IMAGE */
-    .event-extra-card{
-      margin-top:1.5rem;
-      margin-bottom:2.2rem;
-      border-radius:26px;
-      border:1px solid var(--ring);
-      background:#fff;
-      box-shadow:0 16px 45px rgba(15,23,42,.08);
-      overflow:hidden;
-    }
-    .event-extra-card img{
-      width:100%;
-      display:block;
-      height:auto;
-    }
-
-    .events-bottom-text{
-      font-size:1.01rem;
+    .event-note{
+      max-width:960px;
+      font-size:1rem;
       line-height:1.7;
       color:#4b5563;
-      max-width:1000px;
     }
 
     /* FOOTER */
@@ -418,15 +391,10 @@
     }
 
     /* responsive */
-    @media (max-width:960px){
-      .event-layout{
+    @media (max-width:900px){
+      .event-main-card{
         grid-template-columns:1fr;
-      }
-      .event-shell{
         padding:1.8rem 1.6rem;
-      }
-      .stats-grid{
-        grid-template-columns:repeat(2,minmax(0,1fr));
       }
     }
     @media (max-width:768px){
@@ -441,6 +409,9 @@
       }
       .wrap{
         padding-top:4.2rem;
+      }
+      .stats-grid{
+        grid-template-columns:1fr;
       }
       .footer-grid{
         grid-template-columns:1fr 1fr;
@@ -486,88 +457,80 @@
 
   <!-- MAIN -->
   <main class="wrap">
-    <h1 class="page-title">Events</h1>
-    <p class="page-subtitle">
-      A look at our first community project, IT CAMP 2025.
-    </p>
+    <section class="events-hero">
+      <h1>Events</h1>
+      <p class="events-sub">A look at our first community project, IT CAMP 2025.</p>
+    </section>
 
-    <!-- hero section with photo + text -->
-    <section class="event-shell card-hover">
-      <div class="event-layout">
+    <!-- IMAGE + TEXT CARD (old layout) -->
+    <section class="event-main-card card-hover">
+      <div class="event-photo-wrap">
         <div class="event-photo-card">
-          <img src="itcamp-post.png" alt="IT CAMP 2025 Instagram-style photo">
-          <div class="event-photo-label">IT CAMP 2025</div>
+          <!-- your camp photo -->
+          <img src="event-photo.png" alt="IT CAMP 2025 group photo">
+          <div class="event-photo-caption">IT CAMP 2025</div>
         </div>
+      </div>
 
-        <div class="event-text">
-          <p>
-            Our first community project, IT CAMP 2025, brought together motivated high school
-            students who are passionate about computer science and IT. Below you can see a quick
-            snapshot of the camp in numbers.
-          </p>
-          <a class="btn btn-outline"
-             href="https://www.youtube.com/watch?v=7BiRbAjH2cQ"
-             target="_blank" rel="noopener">
-            <span class="icon">▶</span>
-            <span>Watch IT CAMP 2025 recap on YouTube</span>
-          </a>
-        </div>
+      <div>
+        <p class="event-text">
+          Our first community project, IT CAMP 2025, brought together motivated high school students
+          who are passionate about computer science and IT. Below you can see a quick snapshot of the camp in numbers.
+        </p>
+
+        <a class="btn-outline event-yt"
+           href="https://www.youtube.com/watch?v=7BiRbAjH2cQ"
+           target="_blank" rel="noopener noreferrer">
+          ▶ Watch IT CAMP 2025 recap on YouTube
+        </a>
       </div>
     </section>
 
-    <!-- stats -->
-    <section class="stats-section">
+    <!-- STATS -->
+    <section class="event-stats">
       <div class="stats-grid">
-        <div class="stats-item">
-          <div class="stats-number">69</div>
-          <div class="stats-label">Applications</div>
+        <div class="stat-item">
+          <div class="stat-number">69</div>
+          <div class="stat-label">Applications</div>
         </div>
-        <div class="stats-item">
-          <div class="stats-number">36</div>
-          <div class="stats-label">Classes</div>
+        <div class="stat-item">
+          <div class="stat-number">36</div>
+          <div class="stat-label">Classes</div>
         </div>
-        <div class="stats-item">
-          <div class="stats-number">20</div>
-          <div class="stats-label">Selected students</div>
+        <div class="stat-item">
+          <div class="stat-number">20</div>
+          <div class="stat-label">Selected students</div>
         </div>
-        <div class="stats-item">
-          <div class="stats-number">8</div>
-          <div class="stats-label">Analytical topics</div>
+        <div class="stat-item">
+          <div class="stat-number">8</div>
+          <div class="stat-label">Analytical topics</div>
         </div>
-        <div class="stats-item">
-          <div class="stats-number">17</div>
-          <div class="stats-label">Active students</div>
+        <div class="stat-item">
+          <div class="stat-number">17</div>
+          <div class="stat-label">Active students</div>
         </div>
-        <div class="stats-item">
-          <div class="stats-number">80</div>
-          <div class="stats-label">Question types</div>
+        <div class="stat-item">
+          <div class="stat-number">80</div>
+          <div class="stat-label">Question types</div>
         </div>
-        <div class="stats-item">
-          <div class="stats-number">3</div>
-          <div class="stats-label">Winners</div>
+        <div class="stat-item">
+          <div class="stat-number">3</div>
+          <div class="stat-label">Winners</div>
         </div>
-        <div class="stats-item">
-          <div class="stats-number">24</div>
-          <div class="stats-label">Learning resources</div>
+        <div class="stat-item">
+          <div class="stat-number">24</div>
+          <div class="stat-label">Learning resources</div>
         </div>
       </div>
-    </section>
 
-    <!-- extra event image card -->
-    <section class="event-extra-card">
-      <img src="event-photo.png" alt="Students participating in IT CAMP 2025">
+      <p class="event-note">
+        Together with low-income students interested in computer science and IT, we launched the first project of our
+        community, IT CAMP 2025. Throughout the camp, we worked with students on many di]erent mpvzu and question types.
+        At the end, the top 3 students were selected as winners based on the final exam, class activity, and homework scores.
+        All students were presented with certificates and gifts. Don't forget to follow our Instagram page and join our
+        WhatsApp channel to stay informed about future projects!
+      </p>
     </section>
-
-    <!-- bottom paragraph (exact text you gave) -->
-    <p class="events-bottom-text">
-      Together with low-income students interested in computer science and IT, we
-      launched the first project of our community, IT CAMP 2025. Throughout the
-      camp, we worked with students on many di]erent mpvzu and question types.
-      At the end, the top 3 students were selected as winners based on the final
-      exam, class activity, and homework scores. All students were presented with
-      certificates and gifts. Don't forget to follow our Instagram page and join our
-      WhatsApp channel to stay informed about future projects!
-    </p>
   </main>
 
   <!-- FOOTER -->
