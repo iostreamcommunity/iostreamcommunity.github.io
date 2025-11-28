@@ -32,7 +32,7 @@
     body{
       font-family:Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
       color:var(--ink);
-      background:#f8fafc;
+      background:var(--bg);
       -webkit-font-smoothing:antialiased;
     }
 
@@ -133,83 +133,83 @@
       font-weight:800;
     }
 
-    .contact-wrap{
-      width:min(92%, 1040px);
-      margin:4rem auto 3.5rem;
+    .wrap{
+      width:min(92%, 960px);
+      margin:auto;
+      padding:4rem 0 3.5rem;
     }
 
-    .page-title{
-      font-size:clamp(2rem, 4vw, 2.6rem);
+    h1{
+      font-size:clamp(2.2rem,4.4vw,3rem);
       font-weight:900;
+      letter-spacing:.03em;
       margin-bottom:.5rem;
-      background:linear-gradient(90deg,#111,var(--accent));
-      -webkit-background-clip:text;
-      color:transparent;
     }
-
-    .page-subtitle{
-      font-size:1.02rem;
+    .contact-sub{
       color:var(--muted);
-      margin-bottom:2.2rem;
-      max-width:540px;
+      font-size:1.05rem;
+      margin-bottom:2.5rem;
     }
 
-    .contact-shell{
-      border-radius:40px;
-      padding:2.3rem;
-      background:
-        radial-gradient(1200px 700px at 10% 0%, rgba(71,162,72,0.18), transparent 60%),
-        radial-gradient(1200px 800px at 90% 100%, rgba(71,162,72,0.15), transparent 60%),
-        linear-gradient(135deg, var(--accent), #3b8e40);
-      box-shadow:0 34px 80px rgba(15,23,42,.28);
+    .contact-card-outer{
+      background:linear-gradient(135deg,#47A248,#3b8e40);
+      border-radius:26px;
+      padding:1.5rem;
+      box-shadow:0 20px 55px rgba(34,98,52,.35);
+      max-width:880px;
+      margin:0 auto;
     }
-
-    .contact-inner{
-      background:#ffffff;
-      border-radius:30px;
-      padding:2.4rem 2.8rem;
-      box-shadow:0 12px 35px rgba(15,23,42,.10);
+    .contact-card-inner{
+      background:#fff;
+      border-radius:20px;
+      padding:1.8rem 2rem 1.6rem;
     }
-
-    .contact-heading{
-      font-size:1.8rem;
+    .contact-card-title{
+      font-size:1.2rem;
       font-weight:800;
-      margin-bottom:2rem;
+      margin-bottom:1.4rem;
+    }
+
+    .contact-items{
+      display:flex;
+      flex-direction:column;
+      gap:1.1rem;
     }
 
     .contact-item{
       display:flex;
-      align-items:center;
-      gap:1.3rem;
-      margin-bottom:1.4rem;
+      align-items:flex-start;
+      gap:.9rem;
     }
-
     .contact-icon{
-      width:76px;
-      height:76px;
-      border-radius:24px;
-      background:#f3f4ff;
+      width:44px;
+      height:44px;
+      border-radius:18px;
+      background:#e3f4e8;
       display:flex;
       align-items:center;
       justify-content:center;
-      font-size:2.1rem;
+      font-size:1.4rem;
+      color:var(--accent-ink);
+      flex-shrink:0;
+    }
+    .contact-text-main{
+      font-weight:700;
+      font-size:.98rem;
+      margin-bottom:.1rem;
+    }
+    .contact-text-sub{
+      font-size:.95rem;
+      color:#4b5563;
+      line-height:1.5;
     }
 
-    .contact-text-title{
-      font-weight:700;
-      font-size:1.05rem;
-      margin-bottom:.25rem;
-    }
-    .contact-text-body{
+    .contact-bottom-note{
+      max-width:880px;
+      margin:2rem auto 0;
+      font-size:.96rem;
       color:#4b5563;
-      font-size:1.02rem;
-    }
-    .contact-text-body a{
-      color:#2563eb;
-      text-decoration:none;
-    }
-    .contact-text-body a:hover{
-      text-decoration:underline;
+      line-height:1.6;
     }
 
     footer{
@@ -272,6 +272,7 @@
       width:17px;
       height:17px;
     }
+
     .footer-col-title{
       font-weight:700;
       font-size:.95rem;
@@ -291,6 +292,7 @@
     .footer-links a:hover{
       color:#e5e7eb;
     }
+
     .footer-contact-item{
       display:flex;
       align-items:flex-start;
@@ -310,6 +312,7 @@
     .footer-contact-item a:hover{
       text-decoration:underline;
     }
+
     .footer-bottom{
       border-top:1px solid #1f2433;
       margin-top:2rem;
@@ -329,8 +332,8 @@
         width:100%;
         justify-content:space-between;
       }
-      .contact-inner{
-        padding:2rem 1.6rem;
+      .contact-card-inner{
+        padding:1.6rem 1.4rem 1.5rem;
       }
       .footer-grid{
         grid-template-columns:1fr 1fr;
@@ -373,54 +376,58 @@
   </div>
 </header>
 
-<main class="contact-wrap">
-  <h1 class="page-title">Contact</h1>
-  <p class="page-subtitle">
-    If you have any questions about our camps, events or future projects, you can call or email us here and we will try to get back to you as soon as possible.
-  </p>
+<main class="wrap">
+  <h1>Contact</h1>
+  <p class="contact-sub">Get in touch with us.</p>
 
-  <section class="contact-shell">
-    <div class="contact-inner">
-      <div class="contact-heading">Contact Information</div>
+  <section class="contact-card-outer">
+    <div class="contact-card-inner">
+      <div class="contact-card-title">Contact Information</div>
 
-      <div class="contact-item">
-        <div class="contact-icon">📍</div>
-        <div>
-          <div class="contact-text-title">Address</div>
-          <div class="contact-text-body">
-            123 Bashir Safaroglu Street,<br>
-            Baku, Azerbaijan
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-text-main">Address</div>
+            <div class="contact-text-sub">
+              123 Bashir Safaroglu Street,<br>
+              Baku, Azerbaijan
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="contact-item">
-        <div class="contact-icon">📞</div>
-        <div>
-          <div class="contact-text-title">Phone</div>
-          <div class="contact-text-body">
-            +994 (77) 717-15-05
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div>
+            <div class="contact-text-main">Phone</div>
+            <div class="contact-text-sub">
+              +994 (77) 717-15-05
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="contact-item">
-        <div class="contact-icon">✉️</div>
-        <div>
-          <div class="contact-text-title">Email</div>
-          <div class="contact-text-body">
-            <a href="mailto:info@iostream.az">info@iostream.az</a>
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <div class="contact-text-main">Email</div>
+            <div class="contact-text-sub">
+              <a href="mailto:info@iostream.az">info@iostream.az</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <p class="contact-bottom-note">
+    You can reach us by phone or email for any questions about our programs, partnerships, or future projects. We’ll get back to you as soon as possible.
+  </p>
 </main>
 
 <footer id="contact-footer">
   <div class="footer-inner">
     <div class="footer-grid">
-      <div class="footer-brand">
+      <div class="footer-brand" id="about-footer">
         <div class="footer-brand-title">
           <img src="logo.jpeg" alt="IOSTREAM Community logo" class="footer-logo">
           <div><strong>IOSTREAM Community</strong></div>
