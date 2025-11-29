@@ -424,7 +424,6 @@
       </div>
     </main>
 
-    <!-- FOOTER -->
     <footer id="contact-footer">
       <div class="footer-inner">
         <div class="footer-grid">
@@ -495,5 +494,23 @@
     </footer>
 
   </div>
+
+<script>
+  (function(){
+    function adjustFooterOffset(){
+      var footer=document.querySelector('footer');
+      if(!footer)return;
+      footer.style.marginTop='0';
+      var rect=footer.getBoundingClientRect();
+      var vh=window.innerHeight||document.documentElement.clientHeight;
+      if(rect.top<vh){
+        var offset=vh-rect.top+1;
+        footer.style.marginTop=offset+'px';
+      }
+    }
+    window.addEventListener('load',adjustFooterOffset);
+    window.addEventListener('resize',adjustFooterOffset);
+  })();
+</script>
 </body>
 </html>
