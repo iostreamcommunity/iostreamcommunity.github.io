@@ -192,27 +192,26 @@
 
     .stats-section{
       margin:0 auto 2.6rem;
-      max-width:480px;
+      max-width:900px;
     }
     .stats-grid{
       display:grid;
-      grid-template-columns:1fr;
-      gap:1.2rem;
-      justify-items:flex-start;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:1.8rem 4.5rem;
+      justify-items:center;
     }
     .stat-item{
-      text-align:left;
-      width:100%;
+      text-align:center;
     }
     .stat-number{
       font-size:2.4rem;
       font-weight:800;
       color:#16a34a;
       line-height:1;
-      margin-bottom:.1rem;
+      margin-bottom:.15rem;
     }
     .stat-label{
-      font-size:1rem;
+      font-size:1.02rem;
       font-weight:600;
       color:#111827;
     }
@@ -358,6 +357,10 @@
       .nav-links{
         gap:.75rem;
         flex-wrap:wrap;
+      }
+      .stats-grid{
+        grid-template-columns:1fr;
+        justify-items:center;
       }
       .footer-grid{
         grid-template-columns:1fr;
