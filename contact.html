@@ -188,6 +188,9 @@
       font-size:1.3rem;
       font-weight:800;
     }
+    .contact-col-title-right{
+      padding-left:.45rem;   /* shift Get support a bit right from the dashed line */
+    }
 
     .contact-items{
       display:flex;
@@ -237,10 +240,6 @@
     .support-form{
       border-left:1px dashed var(--ring);
       padding-left:1.6rem;
-    }
-    .support-form-title{
-      font-size:1.3rem;
-      font-weight:800;
     }
     .form-grid{
       display:grid;
@@ -504,7 +503,7 @@
       <!-- titles on same line -->
       <div class="contact-layout-header">
         <div class="contact-col-title">Contact information</div>
-        <div class="contact-col-title">Get support</div>
+        <div class="contact-col-title contact-col-title-right">Get support</div>
       </div>
 
       <div class="contact-layout">
@@ -545,8 +544,6 @@
 
         <!-- RIGHT: support form -->
         <form id="support-form" class="support-form">
-          <div class="support-form-title"> </div> <!-- title visually handled above -->
-
           <div class="form-grid">
             <div class="form-field">
               <label for="first-name">Name</label>
@@ -608,6 +605,7 @@
           <a href="https://wa.me/994777171505" target="_blank" aria-label="WhatsApp">
             <img src="whatsapp.png" alt="WhatsApp">
           </a>
+          <!-- Linktree removed here as requested -->
         </div>
       </div>
 
