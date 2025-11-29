@@ -226,7 +226,7 @@
       font-size:.96rem;
       color:#4b5563;
       line-height:1.6;
-      text-align:center;          /* center bottom text too */
+      text-align:center;          /* center bottom text */
     }
 
     footer{
@@ -234,6 +234,7 @@
       color:#c5c9d3;
       font-size:.9rem;
       background:#050816;
+      /* margin-top will be controlled by JS so footer starts below fold */
     }
     .footer-inner{
       width:min(92%, 1040px);
@@ -499,6 +500,28 @@
     </div>
   </div>
 </footer>
+
+<script>
+  (function() {
+    function adjustFooterOffset() {
+      var footer = document.querySelector('footer');
+      if (!footer) return;
+
+      footer.style.marginTop = '0';
+
+      var rect = footer.getBoundingClientRect();
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+
+      if (rect.top < vh) {
+        var offset = vh - rect.top + 1;
+        footer.style.marginTop = offset + 'px';
+      }
+    }
+
+    window.addEventListener('load', adjustFooterOffset);
+    window.addEventListener('resize', adjustFooterOffset);
+  })();
+</script>
 
 </body>
 </html>
