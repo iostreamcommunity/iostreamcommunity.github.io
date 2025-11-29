@@ -165,7 +165,7 @@
     .hero-title{
       font-size:clamp(2.4rem, 4.4vw, 3rem);
       font-weight:900;
-      letter-spacing:.04em;
+      letter-spacing:0;
       margin-bottom:1.5rem;
     }
 
@@ -192,17 +192,17 @@
 
     .stats-section{
       margin:0 auto 2.6rem;
-      max-width:720px;
+      max-width:480px;
     }
     .stats-grid{
       display:grid;
-      grid-template-columns:repeat(2, minmax(0,1fr));
-      gap:1.4rem 3rem;
-      justify-items:center;
+      grid-template-columns:1fr;
+      gap:1.2rem;
+      justify-items:flex-start;
     }
     .stat-item{
       text-align:left;
-      max-width:260px;
+      width:100%;
     }
     .stat-number{
       font-size:2.4rem;
@@ -344,9 +344,6 @@
         width:100%;
         justify-content:space-between;
       }
-      .stats-grid{
-        gap:1.1rem 2rem;
-      }
       .footer-grid{
         grid-template-columns:1fr 1fr;
         row-gap:2rem;
@@ -361,13 +358,6 @@
       .nav-links{
         gap:.75rem;
         flex-wrap:wrap;
-      }
-      .stats-grid{
-        grid-template-columns:1fr;
-        justify-items:flex-start;
-      }
-      .stat-item{
-        text-align:left;
       }
       .footer-grid{
         grid-template-columns:1fr;
