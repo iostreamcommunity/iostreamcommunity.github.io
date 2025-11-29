@@ -33,7 +33,7 @@
     body{
       font-family:Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
       color:var(--ink);
-      background:var(--bg); /* no gradient -> fixes color change */
+      background:var(--bg);
       -webkit-font-smoothing:antialiased;
       text-rendering:optimizeLegibility;
     }
@@ -75,22 +75,18 @@
       color:inherit;
     }
     .logo-sm{
-      width:44px;
-      height:44px;
-      border-radius:16px;
-      border:1px solid #e6e6e6;
-      object-fit:cover;
-      background:#000;
-      box-shadow:0 4px 16px rgba(0,0,0,.10);
+      width:48px;
+      height:48px;
+      border-radius:14px;
+      border:none;
+      object-fit:contain;
+      background:transparent;
+      box-shadow:none;
     }
     .brand-text{
       font-weight:800;
       font-size:1.05rem;
       letter-spacing:.03em;
-    }
-    .brand-sub{
-      font-size:.75rem;
-      color:var(--muted);
     }
     .nav-right{
       display:flex;
@@ -396,11 +392,8 @@
     <div class="nav-wrap">
       <div class="nav-left">
         <a href="index.html" class="nav-brand-link">
-          <img src="logo.jpeg" alt="IOSTREAM Community logo" class="logo-sm">
-          <div>
-            <div class="brand-text">IOSTREAM Community</div>
-            <div class="brand-sub">Code · Climb · Conquer</div>
-          </div>
+          <img src="logo-02.png" alt="IOSTREAM Community logo" class="logo-sm">
+          <div class="brand-text">IOSTREAM Community</div>
         </a>
       </div>
 
