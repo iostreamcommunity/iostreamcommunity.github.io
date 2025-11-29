@@ -65,22 +65,18 @@
       color:inherit;
     }
     .logo-sm{
-      width:44px;
-      height:44px;
-      border-radius:16px;
-      border:1px solid #e6e6e6;
-      object-fit:cover;
-      background:#000;
-      box-shadow:0 4px 16px rgba(0,0,0,.10);
+      width:48px;
+      height:48px;
+      border-radius:14px;
+      border:none;
+      object-fit:contain;
+      background:transparent;
+      box-shadow:none;
     }
     .brand-text{
       font-weight:800;
       font-size:1.05rem;
       letter-spacing:.03em;
-    }
-    .brand-sub{
-      font-size:.75rem;
-      color:var(--muted);
     }
     .nav-right{
       display:flex;
@@ -173,17 +169,24 @@
       border-radius:20px;
       padding:2rem 2.2rem 1.9rem;
     }
-    .contact-card-title{
-      font-size:1.3rem;
-      font-weight:800;
-      margin-bottom:1.5rem;
-    }
 
+    .contact-layout-header{
+      display:grid;
+      grid-template-columns:minmax(0,1.05fr) minmax(0,1.4fr);
+      gap:2rem;
+      align-items:flex-end;
+      margin-bottom:1.4rem;
+    }
     .contact-layout{
       display:grid;
       grid-template-columns:minmax(0,1.05fr) minmax(0,1.4fr);
       gap:2rem;
       align-items:flex-start;
+    }
+
+    .contact-col-title{
+      font-size:1.3rem;
+      font-weight:800;
     }
 
     .contact-items{
@@ -236,15 +239,15 @@
       padding-left:1.6rem;
     }
     .support-form-title{
-      font-size:1.15rem;
+      font-size:1.3rem;
       font-weight:800;
-      margin-bottom:1.1rem;
     }
     .form-grid{
       display:grid;
       grid-template-columns:repeat(2,minmax(0,1fr));
       gap:1rem 1.4rem;
       margin-bottom:1rem;
+      margin-top:.9rem;
     }
     .form-field{
       text-align:left;
@@ -269,7 +272,7 @@
     .form-field textarea{
       border-radius:12px;
       min-height:130px;
-      resize:vertical;              /* only vertical resizing */
+      resize:vertical;
     }
     .form-field input:focus,
     .form-field textarea:focus{
@@ -439,6 +442,7 @@
       .contact-card-inner{
         padding:1.7rem 1.5rem 1.7rem;
       }
+      .contact-layout-header,
       .contact-layout{
         grid-template-columns:1fr;
       }
@@ -471,11 +475,8 @@
   <div class="nav-wrap">
     <div class="nav-left">
       <a href="index.html" class="nav-brand-link">
-        <img src="logo.jpeg" alt="IOSTREAM Community logo" class="logo-sm">
-        <div>
-          <div class="brand-text">IOSTREAM Community</div>
-          <div class="brand-sub">Code · Climb · Conquer</div>
-        </div>
+        <img src="logo-02.png" alt="IOSTREAM Community logo" class="logo-sm">
+        <div class="brand-text">IOSTREAM Community</div>
       </a>
     </div>
 
@@ -499,7 +500,12 @@
 
   <section class="contact-card-outer">
     <div class="contact-card-inner">
-      <div class="contact-card-title">Contact information</div>
+
+      <!-- titles on same line -->
+      <div class="contact-layout-header">
+        <div class="contact-col-title">Contact information</div>
+        <div class="contact-col-title">Get support</div>
+      </div>
 
       <div class="contact-layout">
         <!-- LEFT: contact info -->
@@ -539,7 +545,7 @@
 
         <!-- RIGHT: support form -->
         <form id="support-form" class="support-form">
-          <div class="support-form-title">Get support</div>
+          <div class="support-form-title"> </div> <!-- title visually handled above -->
 
           <div class="form-grid">
             <div class="form-field">
@@ -601,9 +607,6 @@
           </a>
           <a href="https://wa.me/994777171505" target="_blank" aria-label="WhatsApp">
             <img src="whatsapp.png" alt="WhatsApp">
-          </a>
-          <a href="https://linktr.ee/iostreamcommunity" target="_blank" aria-label="Linktree">
-            <img src="linktree-white.png" alt="Linktree">
           </a>
         </div>
       </div>
