@@ -261,117 +261,97 @@
       gap:.9rem;
     }
 
-    .event-cover{
-      border-radius:18px;
-      margin:-.3rem -.2rem .6rem;
-      padding:1rem 1.3rem;
-      background:
-        radial-gradient(circle at -10% -10%, rgba(255,255,255,0.35) 0, transparent 55%),
-        radial-gradient(circle at 110% 120%, rgba(16,185,129,0.7) 0, transparent 60%),
-        linear-gradient(120deg,#16a34a,#22c55e);
-      display:flex;
-      align-items:center;
-      gap:1rem;
+    /* NEW MODERN CARD STYLE FOR IT CAMP */
+    .event-card-modern{
+      background:linear-gradient(135deg,#6d28d9,#4c1d95);
+      border-radius:24px;
+      border:1px solid rgba(255,255,255,0.18);
+      padding:1.4rem 1.5rem 1.4rem;
+      box-shadow:0 26px 70px rgba(15,23,42,0.45);
       color:#f9fafb;
+      gap:1.1rem;
     }
-    .event-cover-icon{
-      width:46px;
-      height:46px;
-      border-radius:999px;
-      background:rgba(15,23,42,0.24);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:1.5rem;
-      flex-shrink:0;
+    .event-card-modern-cover{
+      border-radius:20px;
+      overflow:hidden;
+      margin-bottom:1.3rem;
+      background:#000;
     }
-    .event-cover-icon img{
-      width:28px;
-      height:28px;
-      object-fit:contain;
+    .event-card-modern-cover img{
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit:cover;
     }
-    .event-cover-text{
-      text-align:left;
-    }
-    .event-cover-eyebrow{
-      font-size:.8rem;
-      text-transform:uppercase;
-      letter-spacing:.14em;
-      opacity:.9;
-      margin-bottom:.1rem;
-    }
-    .event-cover-title{
-      font-weight:800;
-      font-size:1.02rem;
-      line-height:1.3;
-    }
-
-    .event-title{
-      font-weight:700;
-      font-size:1.02rem;
-      margin-bottom:.15rem;
-    }
-    .event-description{
-      font-size:.92rem;
-      color:var(--muted);
-      line-height:1.5;
-    }
-
-    .event-meta{
+    .event-card-modern-meta{
       display:flex;
       flex-wrap:wrap;
-      gap:.45rem;
-      margin-top:.25rem;
+      gap:.6rem;
+      margin-bottom:1rem;
     }
-    .pill{
-      font-size:.75rem;
-      padding:.25rem .6rem;
+    .event-card-pill{
+      font-size:.8rem;
+      padding:.32rem .85rem;
       border-radius:999px;
-      border:1px solid rgba(15,118,48,0.2);
-      background:rgba(15,118,48,0.04);
-      color:#166534;
+      background:rgba(15,23,42,0.25);
+      color:#fefefe;
       font-weight:600;
+      border:1px solid rgba(226,232,240,0.28);
     }
-    .pill--neutral{
-      border-color:rgba(148,163,184,0.5);
-      color:#4b5563;
-      background:#f9fafb;
+    .event-card-pill--green{
+      background:#22c55e;
+      border-color:#22c55e;
+      color:#052e16;
     }
-
-    .event-footer-row{
+    .event-card-modern-title{
+      font-size:1.1rem;
+      font-weight:800;
+      text-align:left;
+      margin-bottom:.3rem;
+    }
+    .event-card-modern-desc{
+      font-size:.93rem;
+      line-height:1.5;
+      color:#e5e7eb;
+      text-align:left;
+      margin-bottom:1.2rem;
+    }
+    .event-card-modern-footer{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:.6rem;
-      margin-top:.25rem;
+      gap:.9rem;
     }
-    .event-date{
-      font-size:.82rem;
-      color:#6b7280;
+    .event-card-modern-date{
+      display:flex;
+      align-items:center;
+      gap:.45rem;
+      font-size:.85rem;
+      color:#e5e7eb;
     }
-    .event-btn{
+    .event-card-modern-btn{
       border:none;
       border-radius:999px;
-      padding:.55rem 1.1rem;
-      font-size:.85rem;
+      padding:.55rem 1.3rem;
+      font-size:.86rem;
       font-weight:700;
       cursor:pointer;
-      background:#047857;
+      background:linear-gradient(135deg,#1d4ed8,#1e40af);
       color:#f9fafb;
-      box-shadow:0 10px 30px rgba(5,150,105,0.45);
+      box-shadow:0 16px 35px rgba(30,64,175,0.65);
       display:inline-flex;
       align-items:center;
-      gap:.35rem;
-      white-space:nowrap;
+      justify-content:center;
       text-decoration:none;
+      white-space:nowrap;
     }
-    .event-btn:hover{
-      filter:brightness(.97);
+    .event-card-modern-btn:hover{
+      filter:brightness(1.02);
       transform:translateY(-1px);
     }
-    .event-btn:active{
+    .event-card-modern-btn:active{
       transform:none;
-      box-shadow:0 4px 16px rgba(5,150,105,0.35);
+      box-shadow:0 6px 18px rgba(30,64,175,0.55);
     }
 
     .empty-message{
@@ -490,6 +470,7 @@
       font-size:.82rem;
       color:#6b7280;
     }
+
     @media (max-width:768px){
       .footer-grid{
         grid-template-columns:1fr 1fr;
@@ -520,6 +501,10 @@
       .nav-links{
         gap:.75rem;
         flex-wrap:wrap;
+      }
+      .event-card-modern-footer{
+        flex-direction:column;
+        align-items:flex-start;
       }
     }
   </style>
@@ -622,35 +607,35 @@
         </p>
 
         <div class="events-grid" data-section="past">
-          <article class="event-card"
+          <article class="event-card event-card-modern"
                    data-type="camp"
                    data-mode="in-person"
                    data-status="past"
                    data-format="individual"
                    data-search="it camp 2025 summer programming olympiad training low income high school students individual">
-            <div class="event-cover">
-              <div class="event-cover-icon">
-                <img src="logo-02.png" alt="IOSTREAM logo">
-              </div>
-              <div class="event-cover-text">
-                <div class="event-cover-eyebrow">Summer Camp · 2025</div>
-                <div class="event-cover-title">IT CAMP 2025 — Baku</div>
-              </div>
+            <div class="event-card-modern-cover">
+              <img src="event-photo.png" alt="IT CAMP 2025 group photo">
             </div>
 
-            <div class="event-title">IT CAMP 2025</div>
-            <p class="event-description">
+            <div class="event-card-modern-meta">
+              <span class="event-card-pill">Camp</span>
+              <span class="event-card-pill">Online</span>
+              <span class="event-card-pill event-card-pill--green">Past event</span>
+            </div>
+
+            <h2 class="event-card-modern-title">IT CAMP 2025</h2>
+            <p class="event-card-modern-desc">
               Our first summer camp for students interested in olympiads and startups,
               focusing on C++ programming, problem-solving, cybersecurity, startups and more.
             </p>
-            <div class="event-meta">
-              <span class="pill">Camp</span>
-              <span class="pill">Online</span>
-            </div>
-            <div class="event-footer-row">
-              <span class="event-date">July 2025 · Baku</span>
-              <a class="event-btn" href="itcamp2025.html">
-                View details →
+
+            <div class="event-card-modern-footer">
+              <div class="event-card-modern-date">
+                <span>📅</span>
+                <span>July 2025 · Baku</span>
+              </div>
+              <a class="event-card-modern-btn" href="itcamp2025.html">
+                View
               </a>
             </div>
           </article>
