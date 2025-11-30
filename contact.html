@@ -239,6 +239,10 @@
     .support-form{
       border-left:1px dashed var(--ring);
       padding-left:1.6rem;
+      min-height:320px;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-start;
     }
     .form-grid{
       display:grid;
@@ -249,6 +253,9 @@
     }
     .form-field{
       text-align:left;
+    }
+    .form-field-full{
+      grid-column:1 / -1;
     }
     .form-field label{
       display:block;
@@ -269,7 +276,7 @@
     }
     .form-field textarea{
       border-radius:12px;
-      min-height:130px;
+      min-height:160px;
       resize:vertical;
     }
     .form-field input:focus,
@@ -304,6 +311,7 @@
       align-items:flex-start;
       gap:.6rem;
       margin-top:.9rem;
+      flex-grow:1;
     }
     .success-icon{
       width:42px;
@@ -489,6 +497,7 @@
         margin-top:1.4rem;
         border-top:1px dashed var(--ring);
         padding-top:1.4rem;
+        min-height:0;
       }
       .form-grid{
         grid-template-columns:1fr;
@@ -589,7 +598,7 @@
                 <label for="last-name">Surname</label>
                 <input id="last-name" name="Surname" type="text" placeholder="Your surname" required>
               </div>
-              <div class="form-field">
+              <div class="form-field form-field-full">
                 <label for="email">Email</label>
                 <input id="email" name="Email" type="email" placeholder="you@example.com" required>
               </div>
@@ -705,7 +714,7 @@
   const successBox = document.getElementById('support-success');
   const againBtn = document.getElementById('support-again');
 
-  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xyzrklae';
+  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT_HERE';
 
   form.addEventListener('submit', function(e) {
     e.preventDefault();
