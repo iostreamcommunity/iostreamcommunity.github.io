@@ -189,7 +189,7 @@
       font-weight:800;
     }
     .contact-col-title-right{
-      padding-left:.45rem;   /* shift Get support a bit right from the dashed line */
+      padding-left:.45rem;
     }
 
     .contact-items{
@@ -236,7 +236,6 @@
       text-decoration-thickness:1px;
     }
 
-    /* Support form */
     .support-form{
       border-left:1px dashed var(--ring);
       padding-left:1.6rem;
@@ -500,14 +499,12 @@
   <section class="contact-card-outer">
     <div class="contact-card-inner">
 
-      <!-- titles on same line -->
       <div class="contact-layout-header">
         <div class="contact-col-title">Contact information</div>
         <div class="contact-col-title contact-col-title-right">Get support</div>
       </div>
 
       <div class="contact-layout">
-        <!-- LEFT: contact info -->
         <div class="contact-items">
           <div class="contact-item">
             <div class="contact-icon">📞</div>
@@ -542,7 +539,6 @@
           </div>
         </div>
 
-        <!-- RIGHT: support form -->
         <form id="support-form" class="support-form">
           <div class="form-grid">
             <div class="form-field">
@@ -605,7 +601,6 @@
           <a href="https://wa.me/994777171505" target="_blank" aria-label="WhatsApp">
             <img src="whatsapp.png" alt="WhatsApp">
           </a>
-          <!-- Linktree removed here as requested -->
         </div>
       </div>
 
@@ -622,8 +617,8 @@
       <div>
         <div class="footer-col-title">Resources</div>
         <div class="footer-links" id="help-center">
-          <a href="#help-center">Help Center</a>
-          <a href="#faq" id="faq">FAQ</a>
+          <a href="contact.html">Help Center</a>
+          <a href="faq.html" id="faq">FAQ</a>
         </div>
       </div>
 
@@ -655,17 +650,21 @@
 </footer>
 
 <script>
-  // Turn form submission into an email to info@iostream.az
   document.getElementById('support-form').addEventListener('submit', function (e) {
     e.preventDefault();
 
-    const first = document.getElementById('first-name').value.trim();
-    const last  = document.getElementById('last-name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const msg   = document.getElementById('message').value.trim();
+    var first = document.getElementById('first-name').value.trim();
+    var last  = document.getElementById('last-name').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var msg   = document.getElementById('message').value.trim();
 
-    const subject = 'Support request from IOSTREAM website';
-    const bodyLines = [
+    if (!first || !email || !msg) {
+      alert('Please fill in your name, email, and message before sending.');
+      return;
+    }
+
+    var subject = 'Support request from IOSTREAM website';
+    var bodyLines = [
       'Name: ' + first + ' ' + last,
       'Email: ' + email,
       '',
@@ -673,11 +672,13 @@
       msg
     ];
 
-    const mailto = 'mailto:info@iostream.az'
+    var mailto = 'mailto:info@iostream.az'
       + '?subject=' + encodeURIComponent(subject)
       + '&body=' + encodeURIComponent(bodyLines.join('\n'));
 
+    alert('Your message will open in your email app now. Please press Send there to complete your request.');
     window.location.href = mailto;
+    this.reset();
   });
 </script>
 
