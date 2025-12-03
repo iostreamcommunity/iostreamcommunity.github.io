@@ -11,8 +11,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="logo-02.png">
 
   <style>
-    
-:root{
+    :root{
       --accent:#47A248;
       --accent-ink:#144717;
       --ink:#0e1116;
@@ -121,8 +120,10 @@
     .nav-links a::after{
       content:"";
       position:absolute;
-      left:0; bottom:-.2rem;
-      width:0; height:2px;
+      left:0;
+      bottom:-.2rem;
+      width:0;
+      height:2px;
       background:var(--accent);
       border-radius:999px;
       transition:width .18s ease;
@@ -351,14 +352,21 @@
       .nav-wrap{
         flex-direction:column;
         align-items:flex-start;
-        padding-inline:1.25rem;
+        padding:.55rem 1.25rem .7rem;
+        gap:.6rem;
       }
       .nav-right{
         width:100%;
         justify-content:space-between;
+        align-items:center;
+      }
+      .nav-links{
+        flex-wrap:wrap;
       }
       main{
-        padding-top:3.8rem;
+        min-height:auto;
+        align-items:flex-start;
+        padding:3rem 0 3rem;
       }
       .footer-grid{
         grid-template-columns:1fr 1fr;
@@ -369,7 +377,7 @@
     @media (max-width:560px){
       .nav-right{
         flex-direction:column-reverse;
-        align-items:flex-end;
+        align-items:flex-start;
         gap:.6rem;
       }
       .nav-links{
@@ -385,28 +393,28 @@
 <body>
   <div class="page">
 
-   <header class="site-header">
-  <div class="nav-wrap">
-    <div class="nav-left">
-      <a href="index.html#home" class="nav-brand-link">
-        <img src="logo-02.png" alt="IOSTREAM Community logo" class="logo-sm">
-        <div class="brand-text">IOSTREAM Community</div>
-      </a>
-    </div>
+    <header class="site-header">
+      <div class="nav-wrap">
+        <div class="nav-left">
+          <a href="index.html#home" class="nav-brand-link">
+            <img src="logo-02.png" alt="IOSTREAM Community logo" class="logo-sm">
+            <div class="brand-text">IOSTREAM Community</div>
+          </a>
+        </div>
 
-    <div class="nav-right">
-      <nav class="nav-links">
-        <a href="index.html#home" class="nav-home">Home</a>
-        <a href="events.html" class="nav-events">Events</a>
-        <a href="about.html" class="nav-about">About</a>
-        <a href="contact.html" class="nav-contact">Contact</a>
-      </nav>
-      <div class="lang-toggle">
-        <span class="active">EN</span> · <span>AZ</span>
+        <div class="nav-right">
+          <nav class="nav-links">
+            <a href="index.html#home" class="nav-home">Home</a>
+            <a href="events.html" class="nav-events">Events</a>
+            <a href="about.html" class="nav-about">About</a>
+            <a href="contact.html" class="nav-contact">Contact</a>
+          </nav>
+          <div class="lang-toggle">
+            <span class="active">EN</span> · <span>AZ</span>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</header>
+    </header>
 
     <main>
       <div class="wrap">
