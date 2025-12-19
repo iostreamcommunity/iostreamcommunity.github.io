@@ -497,7 +497,7 @@
         margin-top:1.4rem;
         border-top:1px dashed var(--ring);
         padding-top:1.4rem;
-        min-height:0;
+        /* keep min-height from desktop so box doesn't shrink */
       }
       .form-grid{
         grid-template-columns:1fr;
@@ -713,6 +713,7 @@
   const submitBtn = document.getElementById('support-submit');
   const successBox = document.getElementById('support-success');
   const againBtn = document.getElementById('support-again');
+  const supportWrapper = document.querySelector('.support-form');
 
   const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xyzrklae';
 
@@ -732,6 +733,10 @@
       headers: { 'Accept': 'application/json' }
     }).then(function(response) {
       if (response.ok) {
+        if (supportWrapper) {
+          const currentHeight = supportWrapper.offsetHeight;
+          supportWrapper.style.minHeight = currentHeight + 'px';
+        }
         form.reset();
         form.style.display = 'none';
         successBox.style.display = 'flex';
