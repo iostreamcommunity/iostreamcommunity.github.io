@@ -19,6 +19,9 @@
       --bg:#ffffff;
       --ring:#e9eef3;
       --radius:16px;
+
+      --header-h:72px;
+      --hero-extra:72px;
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
@@ -26,7 +29,10 @@
 
     body{
       color:var(--ink);
-      background:var(--bg);
+      background:
+        radial-gradient(1200px 700px at 75% -15%, rgba(71,162,72,.10) 0%, rgba(255,255,255,0) 60%),
+        radial-gradient(1000px 650px at -15% 95%, rgba(16,185,129,.09) 0%, rgba(255,255,255,0) 55%),
+        var(--bg);
       font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
       -webkit-font-smoothing:antialiased;
       text-rendering:optimizeLegibility;
@@ -55,7 +61,6 @@
 
     .nav-wrap{
       width:100%;
-      max-width:100%;
       margin-inline:auto;
       padding:.55rem 2rem .45rem;
       display:flex;
@@ -89,9 +94,9 @@
     }
 
     .brand-text{
-      font-weight:800;
+      font-weight:900;
       font-size:1.05rem;
-      letter-spacing:.03em;
+      letter-spacing:.02em;
     }
 
     .nav-right{
@@ -110,9 +115,10 @@
     .nav-links a{
       text-decoration:none;
       color:#1f2933;
-      font-weight:500;
+      font-weight:600;
       padding:.25rem 0;
       position:relative;
+      white-space:nowrap;
     }
 
     .nav-links a::after{
@@ -127,13 +133,11 @@
       transition:width .18s ease;
     }
 
-    .nav-links a:hover::after{
-      width:100%;
-    }
+    .nav-links a:hover::after{ width:100%; }
 
     .lang-toggle{
       font-size:.8rem;
-      font-weight:600;
+      font-weight:700;
       border-radius:999px;
       border:1px solid var(--ring);
       padding:.3rem .7rem;
@@ -141,17 +145,17 @@
       backdrop-filter:blur(8px);
       white-space:nowrap;
     }
-    .lang-toggle span{cursor:pointer;opacity:.65}
-    .lang-toggle span.active{opacity:1;color:var(--accent-ink);font-weight:800}
+    .lang-toggle span{ cursor:pointer; opacity:.65; }
+    .lang-toggle span.active{ opacity:1; color:var(--accent-ink); font-weight:900; }
 
     main{
       flex:1;
-      min-height:100svh;
-      min-height:100dvh;
+      min-height:calc(100svh - var(--header-h) + var(--hero-extra));
+      min-height:calc(100dvh - var(--header-h) + var(--hero-extra));
       display:flex;
       align-items:center;
       justify-content:center;
-      padding:3.5rem 0 3rem;
+      padding:3.5rem 0 4.25rem;
     }
 
     .wrap{
@@ -163,12 +167,11 @@
     h1{
       margin-top:1rem;
       margin-bottom:1rem;
-      font-size:clamp(2.8rem, 5.4vw, 3.8rem);
-      font-weight:900;
-      letter-spacing:.02em;
-      line-height:1.18;
-      padding-bottom:.3rem;
-      background:linear-gradient(90deg, #222 0%, var(--accent) 100%);
+      font-size:clamp(2.8rem, 5.4vw, 3.85rem);
+      font-weight:950;
+      letter-spacing:-.015em;
+      line-height:1.12;
+      background:linear-gradient(90deg, #121826 0%, var(--accent) 100%);
       -webkit-background-clip:text;
       background-clip:text;
       color:transparent;
@@ -177,7 +180,7 @@
     .sub{
       margin-top:.4rem;
       color:var(--muted);
-      font-size:clamp(1rem, 2.1vw, 1.1rem);
+      font-size:clamp(1rem, 2.1vw, 1.12rem);
       max-width:46rem;
       margin-inline:auto;
     }
@@ -196,26 +199,28 @@
       border:1px solid rgba(71,162,72,.35);
       color:#0b1c10;
       background:var(--accent);
-      padding:.9rem 1.7rem;
-      border-radius:12px;
-      font-weight:800;
+      padding:.95rem 1.7rem;
+      border-radius:14px;
+      font-weight:900;
       text-decoration:none;
       display:inline-flex;
       align-items:center;
+      justify-content:center;
       gap:.5rem;
-      font-size:.96rem;
+      font-size:1rem;
       transition:filter .18s ease, transform .18s ease, box-shadow .18s ease;
-      box-shadow:0 12px 30px rgba(71,162,72,.22);
+      box-shadow:0 14px 34px rgba(71,162,72,.22);
+      min-width:220px;
     }
     .btn:hover{
       transform:translateY(-1px);
       filter:brightness(.97);
-      box-shadow:0 15px 36px rgba(71,162,72,.26);
+      box-shadow:0 18px 44px rgba(71,162,72,.26);
     }
-    .btn:active{transform:none}
+    .btn:active{ transform:none; }
 
     footer{
-      padding:2.5rem 1rem 1.6rem;
+      padding:2.6rem 1rem 1.6rem;
       color:#c5c9d3;
       font-size:.9rem;
       background:#050816;
@@ -233,7 +238,7 @@
       align-items:flex-start;
     }
 
-    .footer-brand{color:#e5e7eb;font-size:.92rem}
+    .footer-brand{ color:#e5e7eb; font-size:.92rem; }
 
     .footer-brand-title{
       display:flex;
@@ -258,8 +263,8 @@
     }
 
     .footer-social a{
-      width:30px;
-      height:30px;
+      width:34px;
+      height:34px;
       border-radius:999px;
       border:1px solid #303549;
       display:flex;
@@ -270,19 +275,19 @@
       background:#0b1020;
       transition:background .18s ease, transform .18s ease;
     }
-    .footer-social a:hover{background:#111827;transform:translateY(-1px)}
-    .footer-social svg{width:17px;height:17px}
+    .footer-social a:hover{ background:#111827; transform:translateY(-1px); }
+    .footer-social svg{ width:18px; height:18px; }
 
     .footer-social a img{
-      width:17px;
-      height:17px;
+      width:18px;
+      height:18px;
       display:block;
       object-fit:contain;
       filter:invert(100%) brightness(200%);
     }
 
     .footer-col-title{
-      font-weight:700;
+      font-weight:800;
       font-size:.95rem;
       color:#e5e7eb;
       margin-bottom:.8rem;
@@ -291,29 +296,28 @@
     .footer-links{
       display:flex;
       flex-direction:column;
-      gap:.45rem;
+      gap:.48rem;
     }
 
     .footer-links a{
       text-decoration:none;
       color:#9ca3af;
-      font-size:.9rem;
+      font-size:.92rem;
     }
-    .footer-links a:hover{color:#e5e7eb}
+    .footer-links a:hover{ color:#e5e7eb; }
 
     .footer-contact-item{
       display:flex;
       align-items:flex-start;
       gap:.55rem;
-      margin-bottom:.45rem;
+      margin-bottom:.5rem;
       color:#9ca3af;
-      font-size:.9rem;
+      font-size:.92rem;
     }
 
-    .footer-contact-item span.icon{font-size:1rem;margin-top:.05rem}
-
-    .footer-contact-item a{color:inherit;text-decoration:none}
-    .footer-contact-item a:hover{text-decoration:underline}
+    .footer-contact-item span.icon{ font-size:1rem; margin-top:.05rem; }
+    .footer-contact-item a{ color:inherit; text-decoration:none; }
+    .footer-contact-item a:hover{ text-decoration:underline; }
 
     .footer-contact-icon{
       width:18px;
@@ -331,77 +335,117 @@
       color:#6b7280;
     }
 
-   @media (max-width:768px){
-  .nav-wrap{
-    flex-direction:row !important;
-    flex-wrap:wrap !important;
-    align-items:center !important;
-    justify-content:space-between !important;
-    padding:.6rem 1rem .55rem !important;
-    gap:.55rem !important;
-  }
+    /* MOBILE (clean + impressive) */
+    @media (max-width:768px){
+      :root{
+        --header-h:118px;
+        --hero-extra:90px;
+      }
 
-  .logo-sm{ width:38px !important; height:38px !important; border-radius:12px !important; }
-  .brand-text{ font-size:1rem !important; }
+      .nav-wrap{
+        padding:.65rem 1rem .55rem;
+        flex-direction:column;
+        align-items:stretch;
+        gap:.55rem;
+      }
 
-  .nav-right{
-    width:100% !important;
-    justify-content:space-between !important;
-    align-items:center !important;
-    gap:.75rem !important;
-  }
+      .nav-left{
+        justify-content:space-between;
+      }
 
-  .nav-links{
-    flex-wrap:wrap !important;
-    gap:.85rem 1.05rem !important;
-    font-size:.95rem !important;
-  }
+      .logo-sm{ width:40px; height:40px; border-radius:12px; }
+      .brand-text{ font-size:1.02rem; letter-spacing:.01em; }
 
-  .lang-toggle{
-    margin-left:auto !important;
-    padding:.25rem .6rem !important;
-    font-size:.78rem !important;
-  }
+      .nav-right{
+        width:100%;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap:.75rem;
+      }
 
-  main{
-    min-height:100svh !important;
-    min-height:100dvh !important;
-    align-items:center !important;
-    justify-content:center !important;
-    padding:1.6rem 0 2.2rem !important;
-  }
+      .nav-links{
+        width:100%;
+        flex-wrap:nowrap;
+        overflow-x:auto;
+        -webkit-overflow-scrolling:touch;
+        gap:.95rem;
+        padding:.15rem 0;
+        scrollbar-width:none;
+      }
+      .nav-links::-webkit-scrollbar{ display:none; }
 
-  .wrap{ text-align:left !important; }
+      .nav-links a{
+        font-size:.98rem;
+        padding:.35rem 0;
+      }
 
-  h1{
-    font-size:clamp(2.05rem, 8.6vw, 2.85rem) !important;
-    line-height:1.12 !important;
-    margin-top:.2rem !important;
-    margin-bottom:.75rem !important;
-  }
+      .lang-toggle{
+        padding:.26rem .62rem;
+        font-size:.78rem;
+        flex:0 0 auto;
+      }
 
-  .sub{
-    margin-inline:0 !important;
-    max-width:36rem !important;
-    font-size:1rem !important;
-  }
+      main{
+        align-items:flex-start;
+        padding:1.9rem 0 3.2rem;
+      }
 
-  .cta-row{
-    justify-content:flex-start !important;
-    margin-top:1.25rem !important;
-  }
+      .wrap{
+        text-align:left;
+        width:min(92%, 640px);
+      }
 
-  .btn{
-    width:100% !important;
-    justify-content:center !important;
-  }
-}
+      h1{
+        margin-top:.2rem;
+        margin-bottom:.8rem;
+        font-size:clamp(2.25rem, 10.4vw, 3.15rem);
+        line-height:1.06;
+        letter-spacing:-.02em;
+      }
 
-@media (max-width:560px){
-  .nav-links{ gap:.75rem 1rem !important; }
-  .nav-links a{ font-size:.95rem !important; }
-}
+      .sub{
+        margin-inline:0;
+        max-width:34rem;
+        font-size:1.05rem;
+        line-height:1.55;
+      }
 
+      .cta-row{
+        justify-content:flex-start;
+        margin-top:1.35rem;
+      }
+
+      .btn{
+        width:100%;
+        padding:1.05rem 1.2rem;
+        border-radius:16px;
+        font-size:1.02rem;
+      }
+
+      .footer-grid{
+        grid-template-columns:1fr;
+        gap:1.6rem;
+      }
+
+      footer{
+        padding:2.2rem 1rem 1.4rem;
+      }
+
+      .footer-bottom{
+        margin-top:1.6rem;
+        padding-top:1rem;
+      }
+    }
+
+    @media (max-width:420px){
+      :root{
+        --header-h:126px;
+        --hero-extra:100px;
+      }
+      h1{ font-size:clamp(2.15rem, 11vw, 3.05rem); }
+      .sub{ font-size:1.02rem; }
+    }
   </style>
 </head>
 
@@ -459,7 +503,7 @@
               to learn, build, and grow together.
             </p>
             <div class="footer-social">
-              <a href="https://www.instagram.com/iostreamcommunity/" target="_blank" aria-label="Instagram">
+              <a href="https://www.instagram.com/iostreamcommunity/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                      stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
@@ -467,12 +511,12 @@
                   <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                 </svg>
               </a>
-              <a href="https://www.linkedin.com/company/iostreamcommunity/" target="_blank" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/company/iostreamcommunity/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 <svg viewBox="0 0 24 24" fill="currentColor">
                   <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4v12h-4V8zm7.5 0h3.8v1.7h.06c.53-.98 1.82-2 3.75-2 4 0 4.74 2.63 4.74 6v6.3h-4v-5.6c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.95v5.7h-4V8z"/>
                 </svg>
               </a>
-              <a href="https://wa.me" target="_blank">
+              <a href="https://wa.me" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
                 <img src="whatsapp.png" alt="WhatsApp">
               </a>
             </div>
@@ -511,7 +555,7 @@
                 <img src="linktree.png" alt="Linktree" class="footer-contact-icon">
               </span>
               <span>
-                <a href="https://linktr.ee/iostreamcommunity" target="_blank">@iostreamcommunity</a>
+                <a href="https://linktr.ee/iostreamcommunity" target="_blank" rel="noopener noreferrer">@iostreamcommunity</a>
               </span>
             </div>
           </div>
