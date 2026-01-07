@@ -11,15 +11,17 @@
   <link rel="icon" type="image/png" sizes="16x16" href="logo-02.png">
 
   <style>
-    :root{
-      --accent:#47A248;
-      --accent-ink:#144717;
-      --ink:#0e1116;
-      --muted:#5b6675;
-      --bg:#ffffff;
-      --ring:#e9eef3;
-      --radius:16px;
-    }
+   :root{
+  --accent:#47A248;
+  --accent-ink:#144717;
+  --ink:#0e1116;
+  --muted:#5b6675;
+  --bg:#ffffff;
+  --ring:#e9eef3;
+  --radius:16px;
+  --header-h:72px;
+}
+
 
     .footer-social a img{
       width:17px;
@@ -32,21 +34,18 @@
     *{box-sizing:border-box;margin:0;padding:0}
     html,body{height:100%}
 
-    body{
-      color:var(--ink);
-      background:
-        radial-gradient(1200px 800px at 70% -10%, #f4f7fa 20%, transparent 60%),
-        radial-gradient(900px 600px at -10% 90%, #f7fbf8 10%, transparent 60%),
-        var(--bg);
-      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
-      -webkit-font-smoothing:antialiased;
-      text-rendering:optimizeLegibility;
+  body{
+  color:var(--ink);
+  background:var(--bg);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
 
-    
-      min-height:100vh;
-      min-height:100svh;
-      min-height:100dvh;
-    }
+  min-height:100vh;
+  min-height:100svh;
+  min-height:100dvh;
+}
+
 
     .page{
       min-height:100vh;
@@ -163,9 +162,9 @@
     }
     main{
   flex:1;
-  min-height:100vh;
-  min-height:100svh;
-  min-height:100dvh;
+  min-height:calc(100vh - var(--header-h));
+  min-height:calc(100svh - var(--header-h));
+  min-height:calc(100dvh - var(--header-h));
   display:flex;
   align-items:center;
   justify-content:center;
@@ -386,6 +385,7 @@
         grid-template-columns:1fr 1fr;
         row-gap:2rem;
       }
+      :root{ --header-h:120px; }
     }
 
     @media (max-width:560px){
