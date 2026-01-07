@@ -41,9 +41,20 @@
       font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
       -webkit-font-smoothing:antialiased;
       text-rendering:optimizeLegibility;
+
+      /* ✅ mobile-safe page height */
+      min-height:100vh;
+      min-height:100svh;
+      min-height:100dvh;
     }
 
+    /* ✅ make layout push footer naturally (no JS) */
     .page{
+      min-height:100vh;
+      min-height:100svh;
+      min-height:100dvh;
+      display:flex;
+      flex-direction:column;
     }
 
     .site-header{
@@ -151,9 +162,9 @@
       color:var(--accent-ink);
       font-weight:800;
     }
-
     main{
-      min-height:calc(100vh - 72px);
+      flex:1;                
+      min-height:auto;
       display:flex;
       align-items:center;
       justify-content:center;
@@ -225,6 +236,8 @@
       color:#c5c9d3;
       font-size:.9rem;
       background:#050816;
+
+      margin-top:auto;
     }
 
     .footer-inner{
@@ -510,23 +523,5 @@
     </footer>
 
   </div>
-
-<script>
-  (function(){
-    function adjustFooterOffset(){
-      var footer=document.querySelector('footer');
-      if(!footer)return;
-      footer.style.marginTop='0';
-      var rect=footer.getBoundingClientRect();
-      var vh=window.innerHeight||document.documentElement.clientHeight;
-      if(rect.top<vh){
-        var offset=vh-rect.top+1;
-        footer.style.marginTop=offset+'px';
-      }
-    }
-    window.addEventListener('load',adjustFooterOffset);
-    window.addEventListener('resize',adjustFooterOffset);
-  })();
-</script>
 </body>
 </html>
