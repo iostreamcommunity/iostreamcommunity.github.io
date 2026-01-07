@@ -19,9 +19,7 @@
       --bg:#ffffff;
       --ring:#e9eef3;
       --radius:16px;
-
       --header-h:72px;
-      --hero-extra:72px;
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
@@ -29,14 +27,10 @@
 
     body{
       color:var(--ink);
-      background:
-        radial-gradient(1200px 700px at 75% -15%, rgba(71,162,72,.10) 0%, rgba(255,255,255,0) 60%),
-        radial-gradient(1000px 650px at -15% 95%, rgba(16,185,129,.09) 0%, rgba(255,255,255,0) 55%),
-        var(--bg);
+      background:var(--bg);
       font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
       -webkit-font-smoothing:antialiased;
       text-rendering:optimizeLegibility;
-
       min-height:100vh;
       min-height:100svh;
       min-height:100dvh;
@@ -61,8 +55,9 @@
 
     .nav-wrap{
       width:100%;
+      max-width:1100px;
       margin-inline:auto;
-      padding:.55rem 2rem .45rem;
+      padding:.6rem 2rem .5rem;
       display:flex;
       align-items:center;
       justify-content:space-between;
@@ -125,7 +120,7 @@
       content:"";
       position:absolute;
       left:0;
-      bottom:-.2rem;
+      bottom:-.22rem;
       width:0;
       height:2px;
       background:var(--accent);
@@ -137,7 +132,7 @@
 
     .lang-toggle{
       font-size:.8rem;
-      font-weight:700;
+      font-weight:800;
       border-radius:999px;
       border:1px solid var(--ring);
       padding:.3rem .7rem;
@@ -145,32 +140,45 @@
       backdrop-filter:blur(8px);
       white-space:nowrap;
     }
-    .lang-toggle span{ cursor:pointer; opacity:.65; }
-    .lang-toggle span.active{ opacity:1; color:var(--accent-ink); font-weight:900; }
+    .lang-toggle span{cursor:pointer;opacity:.65}
+    .lang-toggle span.active{opacity:1;color:var(--accent-ink);font-weight:900}
 
     main{
       flex:1;
-      min-height:calc(100svh - var(--header-h) + var(--hero-extra));
-      min-height:calc(100dvh - var(--header-h) + var(--hero-extra));
+      position:relative;
+      overflow:hidden;
+      min-height:calc(100svh - var(--header-h));
+      min-height:calc(100dvh - var(--header-h));
       display:flex;
       align-items:center;
       justify-content:center;
-      padding:3.5rem 0 4.25rem;
+      padding:3.6rem 0 4.2rem;
+    }
+
+    main::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(900px 520px at 78% -10%, rgba(71,162,72,.12) 0%, rgba(255,255,255,0) 60%),
+        radial-gradient(760px 520px at -10% 92%, rgba(16,185,129,.10) 0%, rgba(255,255,255,0) 56%);
+      pointer-events:none;
     }
 
     .wrap{
       width:min(92%, 960px);
       margin-inline:auto;
       text-align:center;
+      position:relative;
+      z-index:1;
     }
 
     h1{
-      margin-top:1rem;
-      margin-bottom:1rem;
-      font-size:clamp(2.8rem, 5.4vw, 3.85rem);
+      margin:0 0 .9rem;
+      font-size:clamp(2.85rem, 5.4vw, 3.9rem);
       font-weight:950;
-      letter-spacing:-.015em;
-      line-height:1.12;
+      letter-spacing:-.02em;
+      line-height:1.1;
       background:linear-gradient(90deg, #121826 0%, var(--accent) 100%);
       -webkit-background-clip:text;
       background-clip:text;
@@ -178,9 +186,10 @@
     }
 
     .sub{
-      margin-top:.4rem;
+      margin-top:.25rem;
       color:var(--muted);
-      font-size:clamp(1rem, 2.1vw, 1.12rem);
+      font-size:clamp(1.05rem, 2.1vw, 1.15rem);
+      line-height:1.55;
       max-width:46rem;
       margin-inline:auto;
     }
@@ -190,7 +199,7 @@
       gap:.8rem;
       justify-content:center;
       flex-wrap:wrap;
-      margin-top:2.1rem;
+      margin-top:2rem;
     }
 
     .btn{
@@ -199,25 +208,24 @@
       border:1px solid rgba(71,162,72,.35);
       color:#0b1c10;
       background:var(--accent);
-      padding:.95rem 1.7rem;
-      border-radius:14px;
+      padding:1rem 1.7rem;
+      border-radius:16px;
       font-weight:900;
       text-decoration:none;
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      gap:.5rem;
       font-size:1rem;
       transition:filter .18s ease, transform .18s ease, box-shadow .18s ease;
       box-shadow:0 14px 34px rgba(71,162,72,.22);
-      min-width:220px;
+      min-width:240px;
     }
     .btn:hover{
       transform:translateY(-1px);
       filter:brightness(.97);
       box-shadow:0 18px 44px rgba(71,162,72,.26);
     }
-    .btn:active{ transform:none; }
+    .btn:active{transform:none}
 
     footer{
       padding:2.6rem 1rem 1.6rem;
@@ -238,7 +246,7 @@
       align-items:flex-start;
     }
 
-    .footer-brand{ color:#e5e7eb; font-size:.92rem; }
+    .footer-brand{color:#e5e7eb;font-size:.92rem}
 
     .footer-brand-title{
       display:flex;
@@ -275,8 +283,8 @@
       background:#0b1020;
       transition:background .18s ease, transform .18s ease;
     }
-    .footer-social a:hover{ background:#111827; transform:translateY(-1px); }
-    .footer-social svg{ width:18px; height:18px; }
+    .footer-social a:hover{background:#111827;transform:translateY(-1px)}
+    .footer-social svg{width:18px;height:18px}
 
     .footer-social a img{
       width:18px;
@@ -304,7 +312,7 @@
       color:#9ca3af;
       font-size:.92rem;
     }
-    .footer-links a:hover{ color:#e5e7eb; }
+    .footer-links a:hover{color:#e5e7eb}
 
     .footer-contact-item{
       display:flex;
@@ -315,9 +323,9 @@
       font-size:.92rem;
     }
 
-    .footer-contact-item span.icon{ font-size:1rem; margin-top:.05rem; }
-    .footer-contact-item a{ color:inherit; text-decoration:none; }
-    .footer-contact-item a:hover{ text-decoration:underline; }
+    .footer-contact-item span.icon{font-size:1rem;margin-top:.05rem}
+    .footer-contact-item a{color:inherit;text-decoration:none}
+    .footer-contact-item a:hover{text-decoration:underline}
 
     .footer-contact-icon{
       width:18px;
@@ -335,12 +343,8 @@
       color:#6b7280;
     }
 
-    /* MOBILE (clean + impressive) */
     @media (max-width:768px){
-      :root{
-        --header-h:118px;
-        --hero-extra:90px;
-      }
+      :root{ --header-h:118px; }
 
       .nav-wrap{
         padding:.65rem 1rem .55rem;
@@ -349,12 +353,8 @@
         gap:.55rem;
       }
 
-      .nav-left{
-        justify-content:space-between;
-      }
-
       .logo-sm{ width:40px; height:40px; border-radius:12px; }
-      .brand-text{ font-size:1.02rem; letter-spacing:.01em; }
+      .brand-text{ font-size:1.02rem; }
 
       .nav-right{
         width:100%;
@@ -365,12 +365,12 @@
       }
 
       .nav-links{
-        width:100%;
+        flex:1 1 auto;
         flex-wrap:nowrap;
         overflow-x:auto;
         -webkit-overflow-scrolling:touch;
         gap:.95rem;
-        padding:.15rem 0;
+        padding:.1rem 0;
         scrollbar-width:none;
       }
       .nav-links::-webkit-scrollbar{ display:none; }
@@ -381,45 +381,37 @@
       }
 
       .lang-toggle{
+        flex:0 0 auto;
         padding:.26rem .62rem;
         font-size:.78rem;
-        flex:0 0 auto;
       }
 
       main{
-        align-items:flex-start;
         padding:1.9rem 0 3.2rem;
       }
 
       .wrap{
-        text-align:left;
-        width:min(92%, 640px);
+        width:min(92%, 680px);
+        text-align:center;
       }
 
       h1{
-        margin-top:.2rem;
-        margin-bottom:.8rem;
-        font-size:clamp(2.25rem, 10.4vw, 3.15rem);
-        line-height:1.06;
-        letter-spacing:-.02em;
+        font-size:clamp(2.35rem, 10.2vw, 3.2rem);
+        line-height:1.05;
+        margin-bottom:.85rem;
       }
 
       .sub{
-        margin-inline:0;
-        max-width:34rem;
-        font-size:1.05rem;
-        line-height:1.55;
+        max-width:28rem;
+        font-size:1.06rem;
+        line-height:1.6;
       }
 
-      .cta-row{
-        justify-content:flex-start;
-        margin-top:1.35rem;
-      }
+      .cta-row{ margin-top:1.4rem; }
 
       .btn{
-        width:100%;
+        width:min(100%, 420px);
         padding:1.05rem 1.2rem;
-        border-radius:16px;
         font-size:1.02rem;
       }
 
@@ -439,12 +431,9 @@
     }
 
     @media (max-width:420px){
-      :root{
-        --header-h:126px;
-        --hero-extra:100px;
-      }
-      h1{ font-size:clamp(2.15rem, 11vw, 3.05rem); }
-      .sub{ font-size:1.02rem; }
+      :root{ --header-h:126px; }
+      h1{ font-size:clamp(2.25rem, 11vw, 3.1rem); }
+      .sub{ font-size:1.03rem; }
     }
   </style>
 </head>
