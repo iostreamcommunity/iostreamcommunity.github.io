@@ -402,6 +402,65 @@
         grid-template-columns:1fr;
       }
     }
+    @media (max-width:768px){
+  :root{ --header-h:128px; }
+
+  main{
+    align-items:flex-start;
+    padding:1.8rem 0 2.2rem;
+  }
+
+  .wrap{
+    text-align:left;
+    width:min(92%, 960px);
+  }
+
+  h1{
+    margin-top:.4rem;
+    margin-bottom:.75rem;
+    font-size:clamp(2.05rem, 8.8vw, 2.8rem);
+    line-height:1.12;
+  }
+
+  .sub{
+    font-size:1rem;
+    max-width:34rem;
+    margin-inline:0;
+  }
+
+  .cta-row{
+    margin-top:1.4rem;
+    justify-content:flex-start;
+  }
+
+  .btn{
+    width:100%;
+    justify-content:center;
+  }
+
+  .logo-sm{ width:42px; height:42px; }
+  .brand-text{ font-size:1rem; }
+
+  .nav-wrap{ padding:.6rem 1.1rem .8rem; }
+  .nav-right{ gap:.9rem; }
+}
+
+@media (max-width:560px){
+  :root{ --header-h:148px; }
+
+  .nav-links{
+    gap:.9rem;
+  }
+
+  .nav-links a{
+    font-size:.95rem;
+  }
+
+  .lang-toggle{
+    align-self:flex-start;
+  }
+}
+
   </style>
 </head>
 <body>
