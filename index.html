@@ -42,13 +42,12 @@
       -webkit-font-smoothing:antialiased;
       text-rendering:optimizeLegibility;
 
-      /* ✅ mobile-safe page height */
+    
       min-height:100vh;
       min-height:100svh;
       min-height:100dvh;
     }
 
-    /* ✅ make layout push footer naturally (no JS) */
     .page{
       min-height:100vh;
       min-height:100svh;
@@ -163,13 +162,15 @@
       font-weight:800;
     }
     main{
-      flex:1;                
-      min-height:auto;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:3.5rem 0 3rem;
-    }
+  flex:1;
+  min-height:100vh;
+  min-height:100svh;
+  min-height:100dvh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:3.5rem 0 3rem;
+}
 
     .wrap{
       width:min(92%, 960px);
